@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reporttype: MyString
+  img: MyString
+  petname: MyString
+  species: MyString
+  gender: MyString
+  color: MyString
+  descriptions: MyString
+  address: MyString
+  date: 2019-07-21
+  phone: 1
+  email: MyString
+
+two:
+  reporttype: MyString
+  img: MyString
+  petname: MyString
+  species: MyString
+  gender: MyString
+  color: MyString
+  descriptions: MyString
+  address: MyString
+  date: 2019-07-21
+  phone: 1
+  email: MyString

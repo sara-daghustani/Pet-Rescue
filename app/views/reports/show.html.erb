@@ -1,0 +1,47 @@
+ <h1><%= @report.petname %> Pet Name</h1>
+ <div>
+<%= image_tag(@report.img, size: "100x100", alt: "Pet Image") %>
+</div>
+
+<br>
+<div>
+Pet Report:<%=@report.reporttype%>
+</div>
+
+<br>
+<div>
+Pet Species:<%=@report.species%>
+</div>
+
+<br>
+<div>
+Pet Gender: <%=@report.gender%>
+</div>
+
+<br>
+<div>
+Pet Color: <%=@report.color%>
+</div>
+
+<br>
+<div>
+Pet Descriptions:<%=@report.descriptions%>
+</div>
+
+<br>
+<div>
+Pet Address:<%=@report.address%>
+</div>
+
+<br>
+<div>
+ Pet Date:<%=@report.date%>
+</div>
+
+<br>
+<div>
+Contact Us:<%=@report.phone%> <br>
+<%=@report.email %>
+</div>
+
+ <%= link_to 'Back', reports_path %>

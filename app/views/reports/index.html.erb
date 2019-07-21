@@ -1,0 +1,28 @@
+<h1>Pet Reports</h1>
+<%= link_to "Report A Pet", new_report_path, { :class => "button waves-effect waves-light btn" } %>
+<table>
+  <tr>
+    <th> Report Type </th>
+    <th> Image </th>
+    <th> Pet Name </th>
+    <th> Species </th>
+     <th> Primary Color </th>
+    <th> Address </th>
+     <th> Date </th>
+     <th> More Details </th>
+  </tr>
+
+  <% @reports.each do |report| %>
+      <tr>
+      <td><%=report.reporttype%></td>
+     <td><%= image_tag(report.img, size: "100x100", alt: "Pet Image") %></td>
+      <td><%=report.petname%></td>
+    <td><%=report.species%></td>
+    <td><%=report.color%></td>
+    <td><%=report.address%></td>
+    <td><%=report.date%></td>
+    <td><%= link_to "More Details", report_path(report) %></td>
+      
+    </tr>
+  <% end %>
+</table>
