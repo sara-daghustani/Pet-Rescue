@@ -10,6 +10,8 @@
     <th> Address </th>
      <th> Date </th>
      <th> More Details </th>
+     <th>Edit</th>
+     <th>Delete</th>
   </tr>
 
   <% @reports.each do |report| %>
@@ -22,6 +24,14 @@
     <td><%=report.address%></td>
     <td><%=report.date%></td>
     <td><%= link_to "More Details", report_path(report) %></td>
+    <td><a class="btn-floating btn-large red" href="<%= edit_report_path(report) %>" >
+           <em class="large material-icons">Edit report</em>
+          </a>
+    </td>
+    <td><a class="btn-floating btn-large red" data-confirm="Are you sure you want to delete <%= report.petname %>?"
+     data-method="delete" href="/reports/<%= report.id %>" rel="nofollow"><i class="large material-icons">Delete Report</i>
+    </a>
+    </td>
       
     </tr>
   <% end %>

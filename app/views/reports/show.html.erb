@@ -45,3 +45,12 @@ Contact Us:<%=@report.phone%> <br>
 </div>
 
  <%= link_to 'Back', reports_path %>
+
+ <td><a class="btn-floating btn-large red" href="<%= edit_report_path(@report) %>" >
+           <em class="large material-icons">Edit Report</em>
+          </a>
+    </td>
+<td><a class="btn-floating btn-large red" data-confirm="Are you sure you want to delete <%= @report.petname %>?"
+     data-method="delete" href="/reports/<%= @report.id %>" rel="nofollow"><i class="large material-icons">Delete Report</i>
+    </a>
+    </td>
