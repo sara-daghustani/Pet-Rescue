@@ -7,7 +7,6 @@
   <tr>
   
     <th>content</th>
-  
     <th> Show </th>
     <th>Edit</th>
     <th>Delete</th>
@@ -15,7 +14,9 @@
 
   <% @comments.each do |comment| %>
       <tr>
-        <td><%=comment.id  %></td>
+      
+        <td><%=comment.user.id %></td>
+        <td><%=comment.id %></td>
         <td><%= comment.content %></td>
         <td><%= link_to "show", comment_path(comment) %></td>
 

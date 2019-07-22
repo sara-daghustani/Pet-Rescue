@@ -19,12 +19,15 @@
   	<%= form.text_field :petname%>
   </div>
 
-<div>
+
+
+
+
+<div class="form-check">
 <%= form.label :gender, 'Pet Gender'%><br>
-Male <%= form.radio_button :gender, "female" %>
+Male <%= form.radio_button :gender, "female"%>
 Female <%= form.radio_button :gender, "male" %>
  </div>
-
 
       <div class="field">
     <%= form.label :color, 'Pet Color' %><br>
@@ -35,10 +38,16 @@ Female <%= form.radio_button :gender, "male" %>
     <%= form.text_area :descriptions %>
   </div>
 
- <div class="field">
+
+
+
+ <div class="form-group">
     <%= form.label :address, 'Address'%><br>
-    <%= form.text_field :address %>
+    <%= form.text_field :address, class:"form-control", placeholder:"1234 Main St, Makkah"%>
   </div>
+
+
+
 
      <div class="field">
     <%= form.label :date,'Data' %><br>
