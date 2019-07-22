@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   devise_for :users
   get "/home", to: "pages#home"
   root "pages#home"
-  get 'pages/private_page'
   resources :reports, :users, :comments
   # get "reports", to: "reports#index"
   # get "reports/new", to: "reports#new"
