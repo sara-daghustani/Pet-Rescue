@@ -1,0 +1,19 @@
+ <h1><%= @comment.name %> User Name</h1>
+<br>
+<div>
+comment:<%=@comment.content%>
+</div>
+
+<br>
+<div>
+time:<%=@comment.time%>
+</div>
+
+
+
+ <%= link_to 'Back', comments_path %>
+<%= link_to 'Edit', edit_comment_path(@comment) %>
+<a data-confirm="Are you sure you want to delete <%= @comment.name %>?"
+     data-method="delete" href="/comments/<%= @comment.id %>" rel="nofollow"><i class="large material-icons">Delete comment</i>
+</a>
+   

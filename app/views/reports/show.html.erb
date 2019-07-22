@@ -44,6 +44,15 @@ Contact Us:<%=@report.phone%> <br>
 <%=@report.email %>
 </div>
 
+
+
+
+<h2>comments</h2>
+<%# <%= render @report.comments%> 
+
+<h2>leave comments</h2>
+<%= render 'comments/form'%>
+
  <%= link_to 'Back', reports_path %>
 
  <td><a class="btn-floating btn-large red" href="<%= edit_report_path(@report) %>" >

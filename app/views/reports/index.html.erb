@@ -1,5 +1,6 @@
 <h1>Pet Reports</h1>
 <%= link_to "Report A Pet", new_report_path, { :class => "button waves-effect waves-light btn" } %>
+
 <table>
   <tr>
     <th> Report Type </th>
@@ -32,6 +33,7 @@
      data-method="delete" href="/reports/<%= report.id %>" rel="nofollow"><i class="large material-icons">Delete Report</i>
     </a>
     </td>
+
       
     </tr>
   <% end %>
