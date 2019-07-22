@@ -6,8 +6,10 @@ class ReportsController < ApplicationController
         @report = Report.new
     end
     def create
-        Report.create(params.require(:report).permit(:reporttype, :img, :petname, :species,
+        report = Report.new(params.require(:report).permit(:reporttype, :img, :petname, :species,
              :gender, :color, :descriptions, :address, :date, :phone, :email))
+        report.user_id = current_user.id
+        report.save!
         redirect_to reports_path
     end
     def show

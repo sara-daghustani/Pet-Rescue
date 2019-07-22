@@ -1,3 +1,10 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
+<h2>posts</h2>
+<% @reports.each do |r|%>
+<%= r.petname%>
+<% end %>
+
+<%# <h2>leave comments</h2>
+<%= render 'comments/form'%> 
