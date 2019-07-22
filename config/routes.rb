@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   root "pages#home"
   get 'pages/private_page'
   
-  # resources :reports, :user do resources :comments
-  # end
+  resources :reports, :users, :comments
 
   # get "reports", to: "reports#index"
   # get "reports/new", to: "reports#new"
