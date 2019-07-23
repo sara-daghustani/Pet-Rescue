@@ -46,21 +46,31 @@ Contact Us:<%=@report.phone%> <br>
 
 <%= link_to 'Back', reports_path %>
 
-<a class="btn-floating btn-large red" href="<%= edit_report_path(@report) %>" >
-           <em class="large material-icons">Edit Report</em>
-          </a>
- 
-><a class="btn-floating btn-large red" data-confirm="Are you sure you want to delete <%= @report.petname %>?"
-     data-method="delete" href="/reports/<%= @report.id %>" rel="nofollow"><i class="large material-icons">Delete Report</i>
-    </a>
+
+<% if user_signed_in? %>
+<%if current_user.id == @report.user_id%>
+<%= link_to "Edit", edit_report_path(@report) %>
+<%= link_to "Delete", report_path(@report) , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
+<%end%>
+<%end%>
+    
+
+
 
     
 <h2>comments count</h2>
 <%= @report.comments.count%>
 <% @report.comments.each do |r| %> 
 <%= r.content%>
+
+
+<% if user_signed_in? %>
+<%if current_user.id == r.user_id%>
 <%= link_to "Edit", edit_comment_path(r) %>
-<%= link_to "Delete", comment_path(r) , method: :delete, data: {confirm:"Are you sure you want to delete"}%>  %>
+<%= link_to "Delete", comment_path(r) , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
+
+<%end%>
+<%end%>
 <%end%>
 <h2>leave comments</h2>
 <%= render 'comments/form'%> 
