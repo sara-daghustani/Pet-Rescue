@@ -1,16 +1,13 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-<h2>posts</h2>
+<h1>Pet Reports Lost and Found</h1>
 
 <% @reports.each do |report|  %>
 <div class="col-sm-4">
    <div class="card">
      <div class="card-body">
-      <%= report.user.email%>
-       <h5 class="card-title"> <%=report.reporttype%></h5>
+      <h5> Reported by: <%= report.user.email%></h5>
+       <h3 class="card-title"> Report Type: <%=report.reporttype%></h3>
         <div><%= image_tag(report.img, size: "200x200", alt: "Pet Image")%></div>
-       <p class="card-text"><%= report.petname %></p>
+       <p class="card-text">Pet Name:<%= report.petname %></p>
         <p class="card-text"><%= report.address %></p>
          <p class="card-text"><%= report.date %></p>
           <%= link_to "More Details", report_path(report) %>
