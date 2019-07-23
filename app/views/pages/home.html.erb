@@ -1,18 +1,26 @@
 <h1>Pet Reports Lost and Found</h1>
 
+<div class="card-deck">
 <% @reports.each do |report|  %>
-<div class="col-sm-4">
+<div class="col-6 col-sm-4 col-md-3 p-2">
    <div class="card">
      <div class="card-body">
-      <h5> Reported by: <%= report.user.email%></h5>
-       <h3 class="card-title"> Report Type: <%=report.reporttype%></h3>
+      <h2> Report Type: <%=report.reporttype%> </h2>
+       <h6 class="card-title"> Reported by: <%= report.user.email%></h6>
         <div><%= image_tag(report.img, size: "200x200", alt: "Pet Image")%></div>
-       <p class="card-text">Pet Name:<%= report.petname %></p>
-        <p class="card-text"><%= report.address %></p>
-         <p class="card-text"><%= report.date %></p>
-          <%= link_to "More Details", report_path(report) %>
-
+       <h3 class="card-text"> <%= report.petname %></h3>
+        <h4 class="card-text">Pet <%=report.reporttype%> Adress:</h4>
+        <h5 class="card-text"> <%= report.address %></h5>
+         <h4 class="card-text"> Pet <%=report.reporttype%> Date:</h4>
+           <h5 class="card-text"> <%= report.date %></h5>
+         <h4 class="card-text"> Pet Descrption:</h4>
+         <h5 class="card-text"> <%= report.descriptions %></h5>
+         <h4 class="card-text"> Contact Us:</h4> 
+<h5 class="card-text"> <%=report.phone%> / <%=report.email%> </h5>
+         <button> <%= link_to "More Details", report_path(report) %></button>
       </div>
     </div>
   </div>
+
 <% end %>
+ </div>
