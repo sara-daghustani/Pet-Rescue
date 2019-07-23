@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   get "/home", to: "pages#home"
   root "pages#home"
+
+
   resources :reports, :users, :comments
+
+  
   # get "reports", to: "reports#index"
   # get "reports/new", to: "reports#new"
   # post "reports", to: "reports#create"

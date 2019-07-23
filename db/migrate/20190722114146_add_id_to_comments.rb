@@ -1,5 +1,5 @@
 class AddIdToComments < ActiveRecord::Migration[5.2]
   def change
-    add_reference :comments, :comment, foreign_key: true
+    add_reference :comments, :report, foreign_key: true
   end
 end

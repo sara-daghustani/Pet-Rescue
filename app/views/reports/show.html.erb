@@ -41,25 +41,26 @@ Pet Address:<%=@report.address%>
 <br>
 <div>
 Contact Us:<%=@report.phone%> <br>
-<%=@report.email %>
+<%=@report.email%>
 </div>
 
+<%= link_to 'Back', reports_path %>
 
-
-
-<h2>comments</h2>
-<%# <%= render @report.comments%> 
-
-<h2>leave comments</h2>
-<%= render 'comments/form'%>
-
- <%= link_to 'Back', reports_path %>
-
- <td><a class="btn-floating btn-large red" href="<%= edit_report_path(@report) %>" >
+<a class="btn-floating btn-large red" href="<%= edit_report_path(@report) %>" >
            <em class="large material-icons">Edit Report</em>
           </a>
-    </td>
-<td><a class="btn-floating btn-large red" data-confirm="Are you sure you want to delete <%= @report.petname %>?"
+ 
+><a class="btn-floating btn-large red" data-confirm="Are you sure you want to delete <%= @report.petname %>?"
      data-method="delete" href="/reports/<%= @report.id %>" rel="nofollow"><i class="large material-icons">Delete Report</i>
     </a>
-    </td>
+
+    
+<h2>comments count</h2>
+<%= @report.comments.count%>
+<% @report.comments.each do |r| %> 
+<%= r.content%>
+<%= link_to "Edit", edit_comment_path(r) %>
+<%= link_to "Delete", comment_path(r) , method: :delete, data: {confirm:"Are you sure you want to delete"}%>  %>
+<%end%>
+<h2>leave comments</h2>
+<%= render 'comments/form'%> 

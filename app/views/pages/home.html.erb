@@ -3,44 +3,20 @@
 
 <h2>posts</h2>
 
-<%# <% @reports.each do |report| %> 
-<div class="row">
-<% @reports.each do |report| %>
+
+<div class ="raw">
+<% @reports.each do |report|  %>
   <div class="col-sm-4">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title"><%=report.reporttype%></h5>
-         <%= image_tag(report.img, size: "100x100", alt: "Pet Image")%>
+        <h2 class="card-title"><%=report.reporttype%></h2>
+         <div><%= image_tag(report.img, size: "200x200", alt: "Pet Image")%></div>
         <p class="card-text"><%=report.petname%></p>
         <p class="card-text"><%=report.address%></p>
         <p class="card-text"><%=report.date%></p>
-       <a class="btn btn-primary"> <%=link_to report_path(report) %></a>
+       <a class="btn btn-primary"></a>
+      <%= link_to "More Details", report_path(report) %>
       </div>
     </div>
-  </div>
-    <div class="col-sm-4">
-    <div class="card2">
-      <div class="card2-body">
-        <h5 class="card2-title"><%=report.reporttype%></h5>
-         <%= image_tag(report.img, size: "100x100", alt: "Pet Image")%>
-        <p class="card2-text"><%=report.petname%></p>
-        <p class="card2-text"><%=report.address%></p>
-        <p class="card2-text"><%=report.date%></p>
-       <a class="btn btn-primary"> <%=link_to report_path(report) %></a>
-      </div>
-    </div>
-  </div>
-    <div class="col-sm-4">
-    <div class="card3">
-      <div class="card3-body">
-        <h5 class="card3-title"><%=report.reporttype%></h5>
-         <%= image_tag(report.img, size: "100x100", alt: "Pet Image")%>
-        <p class="card3-text"><%=report.petname%></p>
-        <p class="card3-text"><%=report.address%></p>
-        <p class="card3-text"><%=report.date%></p>
-       <a class="btn btn-primary"> <%=link_to report_path(report) %></a>
-      </div>
-    </div>
-  </div>
-</div>
+  
 <% end %>
