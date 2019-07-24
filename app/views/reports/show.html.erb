@@ -46,19 +46,20 @@
     </div>
 </div>
 
-
-<h2>comments count</h2>
-<%= @report.comments.count%>
-<% @report.comments.each do |r| %> 
-<%= r.content%>
+<div class="input-field col s6" style="margin:auto" >
+<h3 style="margin: 15px; color: rgba(77, 77, 77, 0.829)">Write a comment</h3>
+<%= render 'comments/form'%> 
+<h4 style= "margin: 15px; color: rgba(77, 77, 77, 0.829)"> <%= @report.comments.count%> comments</h4>
+<%@report.comments.each do |r| %> 
+<h6 style="margin: 15px; color: rgba(77, 77, 77, 0.829)"> comment created by: <%= r.user.email%></h6>
+<h6 style="margin: 15px; font-weight:bold;"> <%= r.content%> </h6>
 <%if user_signed_in? %>
 <%if current_user.id == r.user_id%>
 <%= link_to "Edit", edit_comment_path(r) %>
 <%= link_to "Delete", comment_path(r) , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
+<%end%>
+<br>
+<%end%>
+<%end%>
+</div>
 
-<%end%>
-<%end%>
-<%end%>
-
-<h2>leave comments</h2>
-<%= render 'comments/form'%> 

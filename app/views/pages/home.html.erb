@@ -1,12 +1,12 @@
 <br>
-<h1 style= "text-align:center; text-shadow: 2px 2px gainsboro; font-family: 'Courier New', Courier, monospace;  font-size: 40px; color: rgba(77, 77, 77, 0.829)">
+<h1 style= "text-align:center; font-family: 'Courier New', Courier, monospace;  font-size: 40px; color:#158CBA">
 Where Is My Pet?</h1>
 <br>
 
 <div class="card-deck" >
   <% @reports.each do |report|  %>
     <div class="col-6 col-sm-4 col-md-3 p-2">
-        <div class="card border-primary">
+        <div class="card h-100">
             <div class="card-body" style="text-align:center;">
                 <div style="text-align:right;">  
                  <% if report.reporttype == "Lost" %>  <%# make buttom longer%>
