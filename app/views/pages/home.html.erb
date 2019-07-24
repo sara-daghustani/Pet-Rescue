@@ -1,26 +1,55 @@
-<h1>Pet Reports Lost and Found</h1>
+<br>
+<h1 style= "text-align:center; text-shadow: 2px 2px gainsboro; font-family: 'Courier New', Courier, monospace;  font-size: 40px; color: rgba(77, 77, 77, 0.829)">
+Where Is My Pet?</h1>
+<br>
 
-<div class="card-deck">
-<% @reports.each do |report|  %>
-<div class="col-6 col-sm-4 col-md-3 p-2">
-   <div class="card">
-     <div class="card-body">
-      <h2> Report Type: <%=report.reporttype%> </h2>
-       <h6 class="card-title"> Reported by: <%= report.user.email%></h6>
-        <div><%= image_tag(report.img, size: "200x200", alt: "Pet Image")%></div>
-       <h3 class="card-text"> <%= report.petname %></h3>
-        <h4 class="card-text">Pet <%=report.reporttype%> Adress:</h4>
-        <h5 class="card-text"> <%= report.address %></h5>
-         <h4 class="card-text"> Pet <%=report.reporttype%> Date:</h4>
-           <h5 class="card-text"> <%= report.date %></h5>
-         <h4 class="card-text"> Pet Descrption:</h4>
-         <h5 class="card-text"> <%= report.descriptions %></h5>
-         <h4 class="card-text"> Contact Us:</h4> 
-<h5 class="card-text"> <%=report.phone%> / <%=report.email%> </h5>
-         <button> <%= link_to "More Details", report_path(report) %></button>
-      </div>
+<div class="card-deck" >
+  <% @reports.each do |report|  %>
+    <div class="col-6 col-sm-4 col-md-3 p-2">
+        <div class="card border-primary">
+            <div class="card-body" style="text-align:center;">
+                <div style="text-align:right;">  
+                 <% if report.reporttype == "Lost" %>  <%# make buttom longer%>
+                    <button class="btn btn-danger" style ="cursor: default;" > 
+                        <%=report.reporttype%> 
+                    </button>
+                 <%else%> 
+                    <button class="btn btn-success" style ="cursor: default;" >
+                        <%=report.reporttype%> 
+                    </button>
+                 <%end%>
+                </div>
+
+                <h6 class="card-title" style="text-align:left; font-weight:bold;"> Reported by:
+                    <%= report.user.email%>
+                </h6>
+                  <%= image_tag(report.img, alt: "Pet Image", class:'img_t')%> 
+                <h5 class="card-text" style="text-align:center; font-weight:bold; "> <br>
+                    <%= report.petname %>
+                </h5>
+                <h5 class="card-text" style="text-decoration: underline; color: rgba(77, 77, 77, 0.829)"> Pet
+                 <%=report.reporttype%> Adress:
+                </h5>
+                <h6 class="card-text"> 
+                    <%= report.address %>
+                </h6>
+                <h5 class="card-text" style="text-decoration: underline; color: rgba(77, 77, 77, 0.829)"> Pet 
+                    <%=report.reporttype%> Date:
+                </h5>
+                <h6 class="card-text"> 
+                    <%= report.date %>
+                </h6>
+
+                <h5 class="card-text" style="text-decoration: underline; color: rgba(77, 77, 77, 0.829)"> Contact Us:
+                </h5> 
+                <h6 class="card-text"> 
+                    <%=report.email%>
+                </h6>
+                <button class="btn btn-link"> 
+                 <%= link_to "More Details", report_path(report) %>
+                </button>
+            </div>
+        </div>
     </div>
-  </div>
-
-<% end %>
- </div>
+  <% end %>
+</div>

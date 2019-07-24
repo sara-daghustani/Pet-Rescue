@@ -1,42 +1,44 @@
-<h1>Pet Reports</h1>
-<%= link_to "Report A Pet", new_report_path, { :class => "button waves-effect waves-light btn" } %>
+<%# <p>Welcome back <%=current_user.email%>
+<%# </p> %>
+<button class="btn btn-info style="background-color:lightgray;">
+  <%= link_to "Report A Pet", new_report_path%>
+</button>
 
-<table>
-  <tr>
-    <th> Report Type </th>
-    <th> Image </th>
-    <th> Pet Name </th>
-    <th> Species </th>
-     <th> Primary Color </th>
-    <th> Address </th>
-     <th> Date </th>
-     <th> More Details </th>
-     <th>Edit</th>
-     <th>Delete</th>
-  </tr>
-
-  <% @report.each do |report| %>
-      <tr>
-      <td><%=report.reporttype%></td>
-     <td><%= image_tag(report.img, size: "100x100", alt: "Pet Image") %></td>
-      <td><%=report.petname%></td>
-    <td><%=report.species%></td>
-    <td><%=report.color%></td>
-    <td><%=report.address%></td>
-    <td><%=report.date%></td>
-    <td><%= link_to "More Details", report_path(report) %></td>
-    <td><a class="btn-floating btn-large red" href="<%= edit_report_path(report) %>" >
-           <em class="large material-icons">Edit report</em>
-          </a>
-    </td>
-    <td><a class="btn-floating btn-large red" data-confirm="Are you sure you want to delete <%= report.petname %>?"
-     data-method="delete" href="/reports/<%= report.id %>" rel="nofollow"><i class="large material-icons">Delete Report</i>
-    </a>
-    </td> 
+<h1 style="text-align:center; text-shadow: 5px 5px gainsboro; font-family: 'Courier New', Courier, monospace;  font-size: 40px;  "> My Pets Reports </h1><br>
+  
+<table class="table" style= "text-align:center;">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col"> Report Type </th>
+      <th scope="col"> Image </th>
+      <th scope="col"> Pet Name </th>
+      <th scope="col"> Species </th>
+      <th scope="col">Pet Color</th>
+      <th scope="col">Address</th>
+      <th scope="col">Date</th>
+      <th scope="col">More Details</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
     </tr>
+  </thead>
+  <tbody>
+    <% @report.each do |report| %>
+      <tr>
+        <% if report.reporttype == "Lost" %>
+        <td style ="color: red"><%=report.reporttype%></td>
+        <%else%> 
+        <td style ="color: green"><%=report.reporttype%></td>
+        <%end%>
+        <td><%= image_tag(report.img, size: "100x100", alt: "Pet Image") %></td>
+        <td><%=report.petname%></td>
+        <td><%=report.species%></td>
+        <td><%=report.color%></td>
+        <td><%=report.address%></td>
+        <td><%=report.date%></td>
+        <td><%= link_to "More Details", report_path(report) %></td>
+        <td><%= link_to "Edit", edit_report_path(report)%></td>
+        <td><%= link_to "Delete", report_path(report) , method: :delete, data: {confirm:"Are you sure you want to delete"}%></td>
+      </tr>
     <% end %>
+  </tbody>
 </table>
-
-
-<%#= link_to "Edit", edit_report_path(@report) %>
-<%#= link_to "Delete", report_path(@report) , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
