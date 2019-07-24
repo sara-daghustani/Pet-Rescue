@@ -1,72 +1,66 @@
-<%= form_for @report do |form| %>
+
+<div style= "margin: 15px; font-family: 'Courier New', Courier, monospace ; color:#158CBA">
+<%= form_for @report do |form| %> 
 
  <div class="field">
   <%= form.label :reporttype, 'Report Type'%><br>
         <%= form.select :reporttype, ['Lost', 'Found']%>
   </div>
-<div class="field">
+  <div class="field">
   <%= form.label :species, 'Pet Species'%> <br>
         <%= form.select :species, ['Cat', 'Dog', 'Bird', 'Small Animals']%>
   </div>
 
   <div class="field">
   	<%= form.label :img, 'Pet Image' %><br>
-  	<%= form.text_field :img %>
+  	<%= form.text_field :img, placeholder:"Add an Image URL"%>
   </div>
 
     <div class="field">
-  	<%= form.label :petname, 'Pet Name'%><br> 
-  	<%= form.text_field :petname%>
+  	<%= form.label :petname,'Pet Name'%><br> 
+  	<%= form.text_field :petname, placeholder:"Write a Pet Name"%>
   </div>
 
+<div class="field">
+<%= form.label :gender, 'Pet Gender'%> <br> 
+<%= form.radio_button :gender, "Unknown"%> Unknown
+<%= form.radio_button :gender, "Male"%> Male
+<%= form.radio_button :gender, "Female" %> Female
 
-
-<div class="form-check">
-<%= form.label :gender, 'Pet Gender'%><br>
-Male <%= form.radio_button :gender, "female"%>
-Female <%= form.radio_button :gender, "male" %>
  </div>
-
       <div class="field">
     <%= form.label :color, 'Pet Color' %><br>
-    <%= form.text_field :color %>
+    <%= form.text_field :color,placeholder:"Write The Pet Color" %>
   </div>
      <div class="field">
     <%= form.label :descriptions, 'Pet Description'%><br>
-    <%= form.text_area :descriptions %>
+    <%= form.text_area :descriptions, placeholder:"Write a lil description about the animal"%>
   </div>
-
-
-
 
  <div class="form-group">
     <%= form.label :address, 'Address'%><br>
-    <%= form.text_field :address, class:"form-control", placeholder:"Steen St, Makkah"%>
+    <%= form.text_field :address, class:"form-control", placeholder:"ex: Steen St, Makkah"%>
   </div>
 
-
-
-
-     <div class="field">
-    <%= form.label :date,'Data' %><br>
-    <%= form.text_field :date %>
+  <div class="field">
+    <%= form.label :date,'Date' %><br>
+    <%= form.text_field :date, placeholder:"dd-mm-yyyy"%>
   </div>
+
 
      <div class="field">
     <%= form.label :phone,'Contact Phone Number' %><br>
-    <%= form.text_field :phone %>
+    <%= form.text_field :phone, placeholder:"0555555550" %>
   </div>
 
   <div class="field">
     <%= form.label :email, 'Contact Email' %> <br>
-    <%= form.text_field :email %>
+    <%= form.text_field :email, placeholder:"email@example.com" %>
   </div>
-
-
 
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+</div>
 
-<%= link_to 'Back', reports_path %>

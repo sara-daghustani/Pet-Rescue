@@ -1,5 +1,5 @@
 <br>
-<h1 style= "text-align:center; font-family: 'Courier New', Courier, monospace;  font-size: 40px; color:#158CBA">
+<h1 style= "text-align:center; font-family: 'Courier New', Courier, monospace;  font-size: 40px; color:gainsboro">
 Where Is My Pet?</h1>
 <br>
 
@@ -8,39 +8,39 @@ Where Is My Pet?</h1>
     <div class="col-6 col-sm-4 col-md-3 p-2">
         <div class="card h-100">
             <div class="card-body" style="text-align:center;">
-                <div style="text-align:right;">  
+                <div style="text-align:right; text-shadow: 1px 1px gainsboro">  
                  <% if report.reporttype == "Lost" %>  <%# make buttom longer%>
-                    <button class="btn btn-danger" style ="cursor: default;" > 
+                    <h4 style = "color:red" > 
                         <%=report.reporttype%> 
-                    </button>
+                    </h4>
                  <%else%> 
-                    <button class="btn btn-success" style ="cursor: default;" >
+                    <h4 style = "color:green; text-shadow: 1px 1px gainsboro"  >
                         <%=report.reporttype%> 
-                    </button>
+                    </h4>
                  <%end%>
                 </div>
 
-                <h6 class="card-title" style="text-align:left; font-weight:bold;"> Reported by:
-                    <%= report.user.email%>
-                </h6>
+                <h6 class="card-title" style="text-align:left; font-weight:bold;"> Reported by:<br>
+                 <%= report.user.email%> </h6>
+                
                   <%= image_tag(report.img, alt: "Pet Image", class:'img_t')%> 
                 <h5 class="card-text" style="text-align:center; font-weight:bold; "> <br>
                     <%= report.petname %>
                 </h5>
                 <h5 class="card-text" style="text-decoration: underline; color: rgba(77, 77, 77, 0.829)"> Pet
-                 <%=report.reporttype%> Adress:
+                 <%=report.reporttype%> Adress
                 </h5>
                 <h6 class="card-text"> 
                     <%= report.address %>
                 </h6>
                 <h5 class="card-text" style="text-decoration: underline; color: rgba(77, 77, 77, 0.829)"> Pet 
-                    <%=report.reporttype%> Date:
+                    <%=report.reporttype%> Date
                 </h5>
                 <h6 class="card-text"> 
                     <%= report.date %>
                 </h6>
 
-                <h5 class="card-text" style="text-decoration: underline; color: rgba(77, 77, 77, 0.829)"> Contact Us:
+                <h5 class="card-text" style="text-decoration: underline; color: rgba(77, 77, 77, 0.829)"> Contact Us
                 </h5> 
                 <h6 class="card-text"> 
                     <%=report.email%>

@@ -1,3 +1,9 @@
-<h1>Edit <%= @report.petname %></h1>
 
+<button class="btn btn-secondary" style="margin:15px;">
+<%= link_to 'Back', request.referer %>
+</button>
+
+<div style="margin:15px;text-align:center; font-family: 'Courier New', Courier, monospace;  font-size: 40px; color:#158CBA">
+<h1>Edit A Pet Report</h1>
+</div>
 <%= render 'reports/form' %>
