@@ -1,12 +1,9 @@
 
 <div class="container">  
   <div class="text-white jumbotron my-5">
-    <p class="d-flex justify-content-between">
+    <p class="d-content">
       <%=link_to "Add A Report", new_report_path, class:"btn btn-light"%>
-      <%if user_signed_in?%>
-      Welcome <%= current_user.email%>
-      <%end%> 
-    </p>  
+    </p>
     <h1 class=" display-4 text-center mb-5 text-white"> My Pet Reports</h1>
         
     <div class="table-responsive-xl">
@@ -19,9 +16,8 @@
             <th scope="col">Species</th>
             <th scope="col">Pet Color</th>
             <th scope="col">Address</th>
-            <th scope="col">City</th>
             <th scope="col">Date</th>
-            <th scope="col" class="setting">Info</th>
+            <th scope="col" class="setting">Show | Edit | Delete</th>
           </tr>
         </thead>
 
@@ -37,8 +33,7 @@
                 <td><%=report.petname%></td>
                 <td><%=report.species%></td>
                 <td><%=report.color%></td>
-                <td><%=report.address%></td>
-                <td><%=report.city%></td>
+                <td><%=report.address%>, <%=report.city%></td>
                 <td><%=report.date%></td>
                 <td><%= link_to "Show", report_path(report), class:"link-btn" %> |
                <%= link_to "Edit", edit_report_path(report), class:"link-btn"%> |

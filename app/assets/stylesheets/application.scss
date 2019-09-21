@@ -18,19 +18,17 @@
 
  .link-btn{
     border: none;
-    border-radius: 1.5rem;
-    width: 70%;
+    width: 50%;
     font-weight: 600;
     color: #353a3f;
     cursor: pointer;
   }
   .link-btn{
-    color: #5f5f61;
-   
+    color: #353a3f;
   }
   
   .link-btn:hover{
-    color: #353a3f;
+    color: white;
     border-bottom: 2px solid whitesmoke;
     border-radius: 0;
     text-decoration: none;
@@ -104,14 +102,19 @@ thead{
 .setting{
     color: #5f5f61;
 }
-.showbg{
-    background-color:rgba(0, 0, 0, 0.322);
-    border-radius: 5px;
-    padding: 15px;
-    color: white;
-    font-weight: bold;
-}
+.show{
+  padding: 15px;
+  color: white;
+ }
+ strong{
+    color: rgba(0, 0, 0, 0.932);
+ }
+
 .showimg{
     height: 400px;
     width: 450px;
+}
+.homecardtext{
+    color: #767679;
+    font-weight: 600;
 }

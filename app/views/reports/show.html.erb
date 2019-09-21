@@ -1,14 +1,13 @@
 
-<div class="container showbg my-5">
+<div class="container my-5">
 
-    <div class="row align-items-center">
-    
+    <div class=" jumbotron show row align-items-center">
         <div class="col-lg-6">
             <%= image_tag(@report.img, alt: "Pet Image", class:"img-fluid rounded showimg")%> 
         </div>
     
-        <div class="col-lg-5">
-            <div class="row-lg-6 d-flex justify-content-between">
+        <div class="col-lg-6">
+            <div class="row-lg-7 d-flex justify-content-between">
             <%# <%= link_to "PDF File", report_path(format: 'pdf')%>
             
                 <% if @report.reporttype == "Lost"%> 
@@ -23,29 +22,29 @@
                 <div>
                     <%if user_signed_in?%>
                         <%if current_user.id == @report.user_id%>
-                            <%= link_to "Edit", edit_report_path(@report),  class:"font-weight-bold text-white"%>
-                            <%= link_to "Delete", report_path(@report), class:"font-weight-bold text-white" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
+                            <%= link_to "Edit", edit_report_path(@report),  class:"link-btn"%> |
+                            <%= link_to "Delete", report_path(@report), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
                         <%end%>
                     <%end%>
                 </div>
                 
             </div>
             <h1 class="font-weight-light"> <%= @report.petname %></h1> 
-            <p> 
-            Pet Species: <%=@report.species%> <br> 
-            Pet Gender: <%=@report.gender%> <br>
+            <p class="font-weight-bold"> 
+            <strong> Pet Species: </strong> <%=@report.species%> <br> 
+            <strong> Pet Gender:</strong> <%=@report.gender%> <br>
                 <% if @report.reporttype == "Lost"%> 
-                    Pet Last Seen Address: <br>
+                   <strong> Pet Last Seen Address:</strong> 
                     <%= @report.address %>,  <%= @report.city %>
                 <%else%>
-                    Pet Found Address: <br>
+                   <strong> Pet Found Address: </strong> 
                     <%= @report.address %> <%= @report.city %>
                 <%end%> <br>
-            Pet <%=@report.reporttype%> Date:<%= @report.date %> <br>
-            Pet Descriptions: <br> <%=@report.descriptions%><br>
-            Please Contact Me:<br>
-            Phone number: <%=@report.phone%> <br>
-            Email Address:<%=@report.email%> 
+            <strong> Pet <%=@report.reporttype%> Date:</strong> <%= @report.date %> <br>
+            <strong>Pet Descriptions:</strong> <%=@report.descriptions%><br>
+           <strong> Please Contact Me By</strong> <br>
+            <strong>Phone number:</strong> <%=@report.phone%> <br>
+            <strong>Email Address:</strong> <%=@report.email%> 
             </p>
     
             <%# if the user click here it will send an notification to 
