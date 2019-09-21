@@ -23,7 +23,7 @@
 }
 
 .bg{
-    background-image: url("background6.png");
+    background-image: image-url("background6.png");
     background-position: bottom right;
     background-repeat: no-repeat;
     background-size: 570px; 
@@ -34,7 +34,7 @@
     background-color:rgba(0, 0, 0, 0.486);
     border-radius: 5px;
     padding: 15px;
-    background-image: url("background4.png");
+    background-image: image-url("background4.png");
     background-position: bottom center;
     background-repeat: no-repeat;
     background-size: 950px; 
