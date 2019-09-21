@@ -48,6 +48,22 @@
     background-color: rgba(0, 0, 0, 0.486);
 }
 
+.signupbg{
+    background-image: image-url("a.png");
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: 750px; 
+}
+
+.signinbg{
+    background-image: image-url("cat-and-dog_transparent.png");
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: 600px; 
+}
+
+
+
 .cardBody{
     background-color:rgba(0, 0, 0, 0.486);
     border-radius: 5px;
