@@ -1,43 +1,54 @@
-<button type="button" class="btn btn-secondary" style="margin:15px;">
-<%= link_to "Report A Pet", new_report_path%>
-</button>
 
+<div class="container">  
+  <div class="text-white jumbotron my-5">
+    <p class="d-flex justify-content-between">
+      <%=link_to "Add A Report", new_report_path, class:"btn btn-light"%>
+      <%if user_signed_in?%>
+      Welcome <%= current_user.email%>
+      <%end%> 
+    </p>  
+    <h1 class=" display-4 text-center text-white"> My Pet Reports</h1>
+        
+    <div class="table-responsive-md">
+      <table class="table" style= "text-align:center;">
+        <thead class="thead">
+          <tr>
+            <th scope="col">Status</th>
+            <th scope="col">Image</th>
+            <th scope="col">Pet Name</th>
+            <th scope="col">Species</th>
+            <th scope="col">Pet Color</th>
+            <th scope="col">Address</th>
+            <th scope="col">City</th>
+            <th scope="col">Date</th>
+            <th scope="col">More Details</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
 
-<h1 style="text-align:center; font-family: 'Courier New', Courier, monospace;  font-size: 40px; color:gainsboro"> My Pets Reports </h1><br>
-  
-<table class="table" style= "text-align:center;">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col"> Report Type </th>
-      <th scope="col"> Image </th>
-      <th scope="col"> Pet Name </th>
-      <th scope="col"> Species </th>
-      <th scope="col">Pet Color</th>
-      <th scope="col">Address</th>
-      <th scope="col">Date</th>
-      <th scope="col">More Details</th>
-      <th scope="col">Edit</th>
-      <th scope="col">Delete</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @report.each do |report| %>
-      <tr>
-        <% if report.reporttype == "Lost" %>
-        <td style ="color: red"><%=report.reporttype%></td>
-        <%else%> 
-        <td style ="color: green"><%=report.reporttype%></td>
-        <%end%>
-        <td><%= image_tag(report.img, size: "100x100", alt: "Pet Image") %></td>
-        <td><%=report.petname%></td>
-        <td><%=report.species%></td>
-        <td><%=report.color%></td>
-        <td><%=report.address%></td>
-        <td><%=report.date%></td>
-        <td><%= link_to "More Details", report_path(report) %></td>
-        <td><%= link_to "Edit", edit_report_path(report)%></td>
-        <td><%= link_to "Delete", report_path(report) , method: :delete, data: {confirm:"Are you sure you want to delete"}%></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          <tbody>
+            <% @report.each do |report| %>
+              <tr>
+                <% if report.reporttype == "Lost" %>
+                <td style ="color: red"><%=report.reporttype%></td>
+                <%else%> 
+                <td style ="color: green"><%=report.reporttype%></td>
+                <%end%>
+                <td><%= image_tag(report.img, size: "100x100", alt: "Pet Image") %></td>
+                <td><%=report.petname%></td>
+                <td><%=report.species%></td>
+                <td><%=report.color%></td>
+                <td><%=report.address%></td>
+                <td><%=report.city%></td>
+                <td><%=report.date%></td>
+                <td><%= link_to "More Details", report_path(report) %></td>
+                <td><%= link_to "Edit", edit_report_path(report)%></td>
+                <td><%= link_to "Delete", report_path(report) , method: :delete, data: {confirm:"Are you sure you want to delete"}%></td>
+              </tr>
+            <% end %>
+          </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,64 +1,82 @@
-<h6 class="card-title" style="text-align:left; font-weight:bold;"> Reported by: <%= @report.user.email%>
-    <%if user_signed_in? %>
-    <%if current_user.id == @report.user_id%>
-        <%= link_to "Edit", edit_report_path(@report) %>
-        <%= link_to "Delete", report_path(@report) , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
-    <%end%>
-    <%end%>
-</h6>
 
-<div class="card-deck">
-    <div class="col-6" style="margin: auto">
-        <div class="card border-primary">
-            <div class="card-body" style="text-align:center;">
-                <div style="text-align:right;">  
-                 <% if @report.reporttype == "Lost" %> 
-                    <button class="btn btn-danger" style ="cursor: default;" > 
-                        <%=@report.reporttype%> 
-                    </button>
-                 <%else%> 
-                    <button class="btn btn-success" style ="cursor: default;" >
-                        <%=@report.reporttype%> 
-                    </button>
-                 <%end%>
-          <h5 class="card-text" style="text-align:center; font-weight:bold; "> <br>
-                    <%= @report.petname %>
-                </h5>
-                </div> <br>
-                  <%= image_tag(@report.img, alt: "Pet Image", class:"img_ma")%> 
-                <h5 class="card-text" style="text-decoration: underline; color: rgba(77, 77, 77, 0.829)"> Pet Species: 
-                </h5> <%=@report.species%> 
-                <h5 class="card-text" style="text-decoration: underline; color: rgba(77, 77, 77, 0.829)"> Pet Gender:
-                </h5> <%=@report.gender%>
-                <h5 class="card-text" style="text-decoration: underline; color: rgba(77, 77, 77, 0.829)"> Pet Descriptions:
-                </h5> <%=@report.descriptions%>
-                <h5 class="card-text" style="text-decoration: underline; color: rgba(77, 77, 77, 0.829)"> Pet
-                 <%=@report.reporttype%> Adress:
-                </h5> <%= @report.address %>
-                <h5 class="card-text" style="text-decoration: underline; color: rgba(77, 77, 77, 0.829)"> Pet 
-                <%=@report.reporttype%> Date:
-                </h5> <%= @report.date %>
-                <h5 class="card-text" style="text-decoration: underline; color: rgba(77, 77, 77, 0.829)"> Contact Us:
-                </h5> <%=@report.phone%> <br> <%=@report.email%> 
+<div class="container showbg my-5">
+
+    <div class="row align-items-center">
+    
+        <div class="col-lg-6">
+            <%= image_tag(@report.img, alt: "Pet Image", class:"img-fluid rounded mb-4")%> 
+        </div>
+    
+        <div class="col-lg-6">
+            <div class="row-lg-6 d-flex justify-content-between">
+            <%= link_to "PDF File", report_path(format: 'pdf')%>
+            
+                <% if @report.reporttype == "Lost"%> 
+                    <h4 style = "color:red"> 
+                        <%=@report.reporttype%>
+                    </h4> 
+                <%else%>
+                    <h4 style = "color:green;" > 
+                        <%=@report.reporttype%>
+                    </h4>
+                <%end%>
+                <div>
+                    <%if user_signed_in?%>
+                        <%if current_user.id == @report.user_id%>
+                            <%= link_to "Edit", edit_report_path(@report),  class:"font-weight-bold text-white"%>
+                            <%= link_to "Delete", report_path(@report), class:"font-weight-bold text-white" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
+                        <%end%>
+                    <%end%>
+                </div>
+                
             </div>
+            <h1 class="font-weight-light"> <%= @report.petname %></h1> 
+            <p> 
+            Pet Species: <%=@report.species%> <br> 
+            Pet Gender: <%=@report.gender%> <br>
+                <% if @report.reporttype == "Lost"%> 
+                    Pet Last Seen Address: <br>
+                    <%= @report.address %>,  <%= @report.city %>
+                <%else%>
+                    Pet Found Address: <br>
+                    <%= @report.address %> <%= @report.city %>
+                <%end%> <br>
+            Pet <%=@report.reporttype%> Date:<%= @report.date %> <br>
+            Pet Descriptions: <br> <%=@report.descriptions%><br>
+            Please Contact Me:<br>
+            Phone number: <%=@report.phone%> <br>
+            Email Address:<%=@report.email%> 
+            </p>
+    
+            <%# if the user click here it will send an notification to 
+            who post the email with the who is loged on information  %>
+            <% if @report.reporttype == "Lost"%> 
+                  <a class="btn btn-primary" href="#">I Found Your Baby!</a> 
+            <%else%>
+               <a class="btn btn-primary" href="#"> You Found My Baby!</a> 
+            <%end%>
+
         </div>
     </div>
 </div>
 
-<div class="input-field col s6" style="margin:auto" >
-<h3 style="margin: 15px; color: rgba(77, 77, 77, 0.829)">Write a comment</h3>
-<%= render 'comments/form'%> 
-<h4 style= "margin: 15px; color: rgba(77, 77, 77, 0.829)"> <%= @report.comments.count%> comments</h4>
-<%@report.comments.each do |r| %> 
-<h6 style="margin: 15px; color: rgba(77, 77, 77, 0.829)"> comment created by: <%= r.user.email%></h6>
-<h6 style="margin: 15px; font-weight:bold;"> <%= r.content%> </h6>
-<%if user_signed_in? %>
-<%if current_user.id == r.user_id%>
-<%= link_to "Edit", edit_comment_path(r) %>
-<%= link_to "Delete", comment_path(r) , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
-<%end%>
-<br>
-<%end%>
-<%end%>
-</div>
+    <hr class=" bg-secondary my-3">
+    <div class="my-3" >
+        <h4> <%= @report.comments.count%> Comments </h4> <br>
+        <h3 >Write a comment</h3>
 
+        <%= render 'comments/form'%> 
+
+        <%@report.comments.each do |r| %> 
+            <h6 >comment created by: <%= r.user.email%></h6>
+            <h6> <%= r.content%> </h6>
+
+            <%if user_signed_in? %>
+                <%if current_user.id == r.user_id%>
+                    <%= link_to "Edit", edit_comment_path(r) %>
+                    <%= link_to "Delete", comment_path(r) , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
+                <%end%>
+                <br>
+            <%end%>
+        <%end%>
+    </div>

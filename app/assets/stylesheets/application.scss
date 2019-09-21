@@ -16,17 +16,66 @@
  */
 
 
- .img_t{
-width: 80%;
- }
- .img_ma{
-     width: 300px;
- }
- .form-control {
-     width: 30%;
- }
+.top-left{
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
 
+.bg{
+    background-image: url("background6.png");
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: 570px; 
+    background-color: rgba(0, 0, 0, 0.486);
+}
 
- .login{
-     margin-right: 5px;
- }
+.cardBody{
+    background-color:rgba(0, 0, 0, 0.486);
+    border-radius: 5px;
+    padding: 15px;
+    background-image: url("background4.png");
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: 950px; 
+}
+.card-img-top{
+    cursor: none;
+}
+.card{
+    background-color: rgba(255, 255, 255, 0.788);
+}
+.none{
+    cursor: none;
+}
+ul{
+    display: inline-block;
+}
+li{
+    display: inline-block;
+}
+
+.jumbotron{
+    background-color: rgba(0, 0, 0, 0.486);
+}
+
+.navbg{
+    background-color:rgba(0, 0, 0, 0.486);   
+}
+
+tbody{
+    background-color: rgba(255, 255, 255, 0.678);  
+    color:white;
+    font-weight: bold;
+}
+.thead{
+    background-color:rgba(255, 255, 255, 0.678);   
+}
+
+.showbg{
+    background-color:rgba(0, 0, 0, 0.322);
+    border-radius: 5px;
+    padding: 15px;
+    color: white;
+    font-weight: bold;
+}

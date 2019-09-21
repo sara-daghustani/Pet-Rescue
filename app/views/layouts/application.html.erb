@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PetFinderApp</title>
+    <title>Pet Rescue App</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,9 +10,14 @@
   </head>
 
   <body>
-  
+
   <%= render 'layouts/nav'%>
     <%= yield %>
   
+    <footer class="py-2 bg-light">
+    <div class="container">
+      <p class="m-0 text-center text-dark">Copyright &copy; Sara Daghustani 2019</p>
+    </div>
+  </footer>
   </body>
 </html>

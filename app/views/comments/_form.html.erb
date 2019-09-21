@@ -1,14 +1,17 @@
+<%# Form for Users to Write a Comment%>
 
 <%= form_for @comment do |form|  %>
- <div class="input-field col s6" style="margin:auto" >
-    <%= form.text_area :content, placeholder: "Write a comment", class: "form-control",required: true%>
 
-  <%if @report%>
-    <%= form.hidden_field :report_id, :value => @report.id %>
-<%end%>
-  <div class="actions">
-    <%= form.submit%>
+  <div>
+  <%# Text Area for User to Write a Comment. It will Contain the Content and the User ID %>
+    <%= form.text_area :content, size: "25x2",  placeholder: "Write a comment" %>
+      <%if @report%>
+        <%= form.hidden_field :report_id, :value => @report.id %>
+      <%end%>
   </div>
-</div>
+
+  <div>
+    <%= form.submit "Leave A Comment"%>
+  </div>
 <% end %>
 
