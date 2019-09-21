@@ -10,7 +10,7 @@
                 <%=link_to "Report A Lost or Found Pet!", new_report_path, class:"btn btn-light"%> 
             </p>
         </header> 
-        <div class= "cardBody">
+        <div class= "cardBody mt-3 mb-3">
         Search Bar
             <div class="row text-center">
                 <% @reports.each do |report| %>
@@ -29,7 +29,7 @@
                                             </h5>
                                     <%end%>     
                                 </div>
-                                <small ><strong>Created by</strong><%= report.user.email%>
+                                <small ><strong>Created by </strong> <%= report.user.email%>
                                 On <%=report.created_at.strftime("%d/%m/%Y")%>
                                 </small> 
                             </div>
@@ -39,9 +39,7 @@
                                 <%= report.address %>, <%= report.city %><br>
                                  <strong>Pet <%=report.reporttype%> Date:</strong><%= report.date %>
                             </div>
-                             
                                 <%= link_to "Find Out More!", report_path(report), class:"btn btn-light mt-2" %>
-        
                         </div>
                     </div>
                 <%end%>
