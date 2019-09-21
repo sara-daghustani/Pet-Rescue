@@ -25,6 +25,7 @@
   }
   .link-btn{
     color: #353a3f;
+    text-decoration: underline;
   }
   
   .link-btn:hover{
@@ -61,9 +62,18 @@
     background-repeat: no-repeat;
     background-size: 600px; 
 }
-
-
-
+.edituserbg{
+    background-image: image-url("pets1.jpg");
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: 628px; 
+}
+.forgotbg{
+    background-image: image-url("Picture3.png");
+    background-position: bottom right;
+    background-repeat: no-repeat;
+    background-size: 450px; 
+}
 .cardBody{
     background-color:rgba(0, 0, 0, 0.486);
     border-radius: 5px;
