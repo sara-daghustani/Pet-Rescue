@@ -17,7 +17,7 @@
                     <div class="col-lg-3 col-md-6 mb-4 ">
                         <div class="card h-100">
                             <div class=reportimg>
-                                <%= image_tag(report.img, alt: "Pet Image", class:"card-img-top", height:"200px") %>
+                                <%= image_tag(report.img, alt: "Pet Image", class:"card-img-top", height:"200") %>
                                 <div class="top-left"> 
                                     <% if report.reporttype == "Lost"%> 
                                             <h5 class= "none btn btn-danger btn-sm disabled " > 
@@ -33,14 +33,15 @@
                                 On <%=report.created_at.strftime("%d/%m/%Y")%>
                                 </small> 
                             </div>
-                            <div class= "text-left font-weight-bold text-gray" style="padding-left: 15px;">
+                            <div class= "text-left font-weight-bold text-gray" style="padding-left:15px;">
                                 Pet name: <%= report.petname %><br>
                                 Pet <%=report.reporttype%> Location: <br>
                                 <%= report.address %>, <%= report.city %><br>
                                 Pet <%=report.reporttype%> Date: <%= report.date %>
                             </div>
-                                <%= link_to "Find Out More!", report_path(report), class:"btn btn-light" %>
-                            
+                             
+                                <%= link_to "Find Out More!", report_path(report), class:"btn btn-light mt-2" %>
+        
                         </div>
                     </div>
                 <%end%>

@@ -4,12 +4,12 @@
     <div class="row align-items-center">
     
         <div class="col-lg-6">
-            <%= image_tag(@report.img, alt: "Pet Image", class:"img-fluid rounded mb-4")%> 
+            <%= image_tag(@report.img, alt: "Pet Image", class:"img-fluid rounded showimg")%> 
         </div>
     
-        <div class="col-lg-6">
+        <div class="col-lg-5">
             <div class="row-lg-6 d-flex justify-content-between">
-            <%= link_to "PDF File", report_path(format: 'pdf')%>
+            <%# <%= link_to "PDF File", report_path(format: 'pdf')%>
             
                 <% if @report.reporttype == "Lost"%> 
                     <h4 style = "color:red"> 
