@@ -40,7 +40,7 @@
                    <strong> Pet Found Address: </strong> 
                     <%= @report.address %> <%= @report.city %>
                 <%end%> <br>
-            <strong> Pet <%=@report.reporttype%> Date:</strong> <%= @report.date %> <br>
+            <strong> Pet <%=@report.reporttype%> Date:</strong> <%= @report.date.strftime("%B %e, %Y ") %> <br>
             <strong>Pet Descriptions:</strong> <%=@report.descriptions%><br>
            <strong> Please Contact Me By</strong> <br>
             <strong>Phone number:</strong> <%=@report.phone%> <br>
