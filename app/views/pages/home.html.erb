@@ -11,8 +11,11 @@
             </p>
         </header> 
         <div class= "cardBody mt-3 mb-3">
-        Search Bar
-            <div class="row text-center">
+        <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+            <div class="row text-center mt-3">
                 <% @reports.each do |report| %>
                     <div class="col-lg-3 col-md-6 mb-4 ">
                         <div class="card h-100">
@@ -29,7 +32,7 @@
                                             </h5>
                                     <%end%>     
                                 </div>
-                                <small ><strong>Created by </strong> <%= report.user.email%>
+                                <small ><strong>Created by </strong> <%= report.user.name%>
                                 On <%=report.created_at.strftime("%d/%m/%Y")%>
                                 </small> 
                             </div>

@@ -10,6 +10,7 @@ gem 'jquery-rails'
  
 gem 'prawn', '~>1.2.1'
 gem 'prawn-table', '~>0.1.0'
+gem 'bootstrap-sass'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
