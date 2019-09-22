@@ -161,3 +161,11 @@ thead{
     color: #767679;
     font-weight: 600;
 }
+
+.form-inline{
+    margin:auto;
+    justify-content: center;
+}
+.form-inline .form-control {
+    width: 50%;
+}
