@@ -32,13 +32,13 @@
                                             </h5>
                                     <%end%>     
                                 </div>
-                                <small>Created by <%=report.user.name%> On <%=report.created_at.strftime("%d/%m/%y")%></small> 
+                                <small>Created by <%=report.user.name%> On <%=report.created_at.strftime("%b %e, %y ")%></small> 
                             </div>
                             <div class= "text-left ml-2 homecardtext" > 
                                 <strong> Pet name: </strong><%= report.petname %><br>
                                  <strong>Pet <%=report.reporttype%> Location: </strong>
                                 <%= report.address %>, <%= report.city %><br>
-                                 <strong>Pet <%=report.reporttype%> Date:</strong><%= report.date %>
+                                 <strong>Pet <%=report.reporttype %> Date:</strong> <%= report.date.strftime("%b %e, %y ") %>
                             </div>
                                 <%= link_to "Find Out More!", report_path(report), class:"btn btn-light mt-2" %>
                         </div>
