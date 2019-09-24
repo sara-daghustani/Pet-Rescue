@@ -1,59 +1,183 @@
 
-<div class="container my-5">
-    <div class=" jumbotron row align-items-center">
-        <div class="col-lg-6">
-            <%= image_tag(@report.img, alt: "Pet Image", class:"img-fluid rounded showimg")%> 
-        </div>
-    
-        <div class="col-lg-6">
-            <div class="row-lg-7 d-flex justify-content-between">
-            <%# <%= link_to "PDF File", report_path(format: 'pdf')%>
-            
-                <% if @report.reporttype == "Lost"%> 
-                    <h4 style = "color:red"> 
-                        <%=@report.reporttype%>
-                    </h4> 
-                <%else%>
-                    <h4 style = "color:green;" > 
-                        <%=@report.reporttype%>
-                    </h4>
-                <%end%>
-                <div>
-                    <%if user_signed_in?%>
-                        <%if current_user.id == @report.user_id%>
-                            <%= link_to "Edit", edit_report_path(@report),  class:"link-btn"%> |
-                            <%= link_to "Delete", report_path(@report), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
-                        <%end%>
-                    <%end%>
-                </div>
-                
-            </div>
-            <h1 class="font-weight-light"> <%= @report.petname %></h1> 
-            <p class="font-weight-bold"> 
-            <strong> Pet Species: </strong> <%=@report.species%> <br> 
-            <strong> Pet Gender:</strong> <%=@report.gender%> <br>
-                <% if @report.reporttype == "Lost"%> 
-                   <strong> Pet Last Seen Address:</strong> 
-                    <%= @report.address %>,  <%= @report.city %>
-                <%else%>
-                   <strong> Pet Found Address: </strong> 
-                    <%= @report.address %> <%= @report.city %>
-                <%end%> <br>
-            <strong> Pet <%=@report.reporttype%> Date:</strong> <%= @report.date.strftime("%B %e, %Y ") %> <br>
-            <strong>Pet Descriptions:</strong> <%=@report.descriptions%><br>
-           <strong> Please Contact Me By</strong> <br>
-            <strong>Phone number:</strong> <%=@report.phone%> <br>
-            <strong>Email Address:</strong> <%=@report.email%> 
-            </p>
-    
-            <%# if the user click here it will send an notification to 
-            who post the email with the who is loged on information  %>
-            <% if @report.reporttype == "Lost"%> 
-                  <a class="btn btn-primary" href="#">I Found Your Baby!</a> 
+<div class="container my-4 mt-5">  
+    <div class="row ShowcardBody">
+      
+            <% if @report.reporttype == "Found"%> 
+                    <div class="col">
+                        <div class="card h-100 text-black border-success">
+                                <%= image_tag(@report.img, alt: "Pet Image", class:"img-fluid rounded showimg")%> 
+                                <div class="row-lg-7 d-flex justify-content-between">
+                                    <div class="top-left"> 
+                                        <% if @report.reporttype == "Lost"%> 
+                                                <h5 class= "none btn btn-danger btn-sm disabled " > 
+                                                    <%=@report.reporttype%>
+                                                </h5> 
+                                        <%else%>
+                                                <h5 class= "none btn btn-success btn-sm disabled" > 
+                                                    <%=@report.reporttype%>
+                                                </h5>
+                                        <%end%>   
+                                        <%if user_signed_in?%>
+                                            <%if current_user.id == @report.user_id%>
+                                                <%= link_to "Edit", edit_report_path(@report),  class:"link-btn"%> |
+                                                <%= link_to "Delete", report_path(@report), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
+                                            <%end%>
+                                        <%end%>  
+                                    </div>
+                                </div>
+                            <div class="card-body bg-light">
+                                <h3 class="card-title"> <%= @report.petname %></h3>
+                                 <p class="card-text">
+                                    <strong> Pet Species </strong> <br> 
+                                    <%=@report.species%> 
+                                </p>
+                                <p class="card-text">
+                                    <strong> Pet Gender</strong> <br>
+                                    <%=@report.gender%> 
+                                </p>
+                                <p class="card-text">
+                                    <strong>Pet Found Address</strong><br>  
+                                    <%= @report.address %>, <%= @report.city %>
+                                </p>
+                                <p class="card-text">
+                                    <strong>Pet Found Date</strong><br>  
+                                    <%= @report.date.strftime("%d/%m/%Y") %>
+                                </p>
+                                <p class="card-text">
+                                    <strong>Pet Descriptions:</strong> <br>
+                                    <%=@report.descriptions%>
+                                </p>
+                                <p class="card-text">
+                                    <strong> Please Contact Me By</strong><br>
+                                    <strong>Phone number:</strong> <%=@report.phone%> <br>
+                                    <strong>Email Address:</strong> <%=@report.email%>
+                                </p>
+
+                            </div>
+                            <%= link_to "Find Out More!", report_path(@report), class:"btn btn-light" %>
+                        </div>
+                    </div>
+                    
             <%else%>
-               <a class="btn btn-primary" href="#"> You Found My Baby!</a> 
+                     <div class="col">
+                        <div class="card h-100 text-black border-danger">
+                                <%= image_tag(@report.img, alt: "Pet Image", class:"img-fluid rounded showimg")%> 
+                                <div class="row-lg-7 d-flex justify-content-between">
+                                    <div class="top-left"> 
+                                        <% if @report.reporttype == "Lost"%> 
+                                                <h5 class= "none btn btn-danger btn-sm disabled " > 
+                                                    <%=@report.reporttype%>
+                                                </h5> 
+                                        <%else%>
+                                                <h5 class= "none btn btn-success btn-sm disabled" > 
+                                                    <%=@report.reporttype%>
+                                                </h5>
+                                        <%end%>   
+                                    
+                                        <%if user_signed_in?%>
+                                            <%if current_user.id == @report.user_id%>
+                                                <%= link_to "Edit", edit_report_path(@report),  class:"link-btn"%> |
+                                                <%= link_to "Delete", report_path(@report), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
+                                            <%end%>
+                                        <%end%> 
+                                    </div> 
+                                </div>
+                            <div class="card-body bg-light">
+                                <h3 class="card-title"> <%= @report.petname %></h3>
+                                 <p class="card-text">
+                                    <strong> Pet Species </strong> <br> 
+                                    <%=@report.species%> 
+                                </p>
+                                <p class="card-text">
+                                    <strong> Pet Gender</strong> <br>
+                                    <%=@report.gender%> 
+                                </p>
+                                <p class="card-text">
+                                    <strong>Pet Lost Address</strong><br>  
+                                    <%= @report.address %>, <%= @report.city %>
+                                </p>
+                                <p class="card-text">
+                                    <strong>Pet Lost Date</strong><br>  
+                                    <%= @report.date.strftime("%d/%m/%Y") %>
+                                </p>
+                                <p class="card-text">
+                                    <strong>Pet Descriptions:</strong> <br>
+                                    <%=@report.descriptions%>
+                                </p>
+                                <p class="card-text">
+                                    <strong> Please Contact Me By</strong><br>
+                                    <strong>Phone number:</strong> <%=@report.phone%> <br>
+                                    <strong>Email Address:</strong> <%=@report.email%>
+                                </p>
+                                
+                            </div>
+                            <%= link_to "Find Out More!", report_path(@report), class:"btn btn-light" %>
+                        </div>
+                    </div>
             <%end%>
-        </div> 
+
+    </div>
+</div>
+
+
+
+<div class="container my-5">
+    <div class=" row ShowcardBody">
+
+                <div class="col-lg-6">
+                    <%= image_tag(@report.img, alt: "Pet Image", class:"img-fluid rounded showimg")%> 
+                </div>
+            
+                <div class="col-lg-6">
+                    <div class="row-lg-7 d-flex justify-content-between">
+                    <%# <%= link_to "PDF File", report_path(format: 'pdf')%>
+                    
+                        <% if @report.reporttype == "Lost"%> 
+                            <h4 style = "color:red"> 
+                                <%=@report.reporttype%>
+                            </h4> 
+                        <%else%>
+                            <h4 style = "color:green;" > 
+                                <%=@report.reporttype%>
+                            </h4>
+                        <%end%>
+                        <div>
+                            <%if user_signed_in?%>
+                                <%if current_user.id == @report.user_id%>
+                                    <%= link_to "Edit", edit_report_path(@report),  class:"link-btn"%> |
+                                    <%= link_to "Delete", report_path(@report), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
+                                <%end%>
+                            <%end%>
+                        </div>
+                        
+                    </div>
+                    <h1 class="font-weight-light"> <%= @report.petname %></h1> 
+                    <p class="font-weight-bold"> 
+                    <strong> Pet Species: </strong> <%=@report.species%> <br> 
+                    <strong> Pet Gender:</strong> <%=@report.gender%> <br>
+                        <% if @report.reporttype == "Lost"%> 
+                        <strong> Pet Last Seen Address:</strong> 
+                            <%= @report.address %>,  <%= @report.city %>
+                        <%else%>
+                        <strong> Pet Found Address: </strong> 
+                            <%= @report.address %> <%= @report.city %>
+                        <%end%> <br>
+                    <strong> Pet <%=@report.reporttype%> Date:</strong> <%= @report.date.strftime("%B %e, %Y ") %> <br>
+                    <strong>Pet Descriptions:</strong> <%=@report.descriptions%><br>
+                    <strong> Please Contact Me By</strong> <br>
+                    <strong>Phone number:</strong> <%=@report.phone%> <br>
+                    <strong>Email Address:</strong> <%=@report.email%> 
+                    </p>
+            
+                    <%# if the user click here it will send an notification to 
+                    who post the email with the who is loged on information  %>
+                    <% if @report.reporttype == "Lost"%> 
+                        <a class="btn btn-primary" href="#">I Found Your Baby!</a> 
+                    <%else%>
+                    <a class="btn btn-primary" href="#"> You Found My Baby!</a> 
+                    <%end%>
+                </div> 
+            </div>
     </div>
 </div>
 
