@@ -34,7 +34,7 @@
                 <td><%=report.species%></td>
                 <td><%=report.color%></td>
                 <td><%=report.address%>, <%=report.city%></td>
-                <td><%=report.date%></td>
+                <td><%=report.date.strftime("%b %e, %Y ")%></td>
                 <td><%= link_to "Show", report_path(report), class:"link-btn" %> |
                <%= link_to "Edit", edit_report_path(report), class:"link-btn"%> |
                <%= link_to "Delete", report_path(report),class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%></td>
