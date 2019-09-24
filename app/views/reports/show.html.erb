@@ -1,7 +1,6 @@
 
 <div class="container my-5">
-
-    <div class=" jumbotron show row align-items-center">
+    <div class=" jumbotron row align-items-center">
         <div class="col-lg-6">
             <%= image_tag(@report.img, alt: "Pet Image", class:"img-fluid rounded showimg")%> 
         </div>
@@ -54,28 +53,31 @@
             <%else%>
                <a class="btn btn-primary" href="#"> You Found My Baby!</a> 
             <%end%>
-
-        </div>
+        </div> 
     </div>
 </div>
 
-    <hr class=" bg-secondary my-3">
-    <div class="my-3" >
-        <h4> <%= @report.comments.count%> Comments </h4> <br>
-        <h3 >Write a comment</h3>
-
-        <%= render 'comments/form'%> 
-
-        <%@report.comments.each do |r| %> 
-            <h6 >comment created by: <%= r.user.email%></h6>
-            <h6> <%= r.content%> </h6>
-
-            <%if user_signed_in? %>
-                <%if current_user.id == r.user_id%>
-                    <%= link_to "Edit", edit_comment_path(r) %>
-                    <%= link_to "Delete", comment_path(r) , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
-                <%end%>
-                <br>
-            <%end%>
-        <%end%>
+ <div class="col-lg-5 mt-4 ml-4">
+            <%= render 'comments/form'%> 
     </div>
+ <div class="col-lg-5">
+            <div class="row-lg-9 d-flex justify-content-between">
+                <h4> <%= @report.comments.count%>  Comments</h4> 
+                <h4> Comments </h4>
+            </div>
+            <hr>
+            <%@report.comments.each do |r| %> 
+            <div class="row-lg-9 d-flex justify-content-between">
+                <h6 ><%= r.user.name%></h6>
+                <div>
+                    <%if user_signed_in? %>
+                        <%if current_user.id == r.user_id%>
+                            <%= link_to "Edit", edit_comment_path(r), class:"link-btn" %> |
+                            <%= link_to "Delete", comment_path(r), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
+                        <%end%>
+                    <%end%>
+                </div>
+             </div> 
+            <h6> <%= r.content%> </h6>
+             <%end%>
+        </div>
