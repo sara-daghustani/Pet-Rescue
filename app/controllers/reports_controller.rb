@@ -11,7 +11,7 @@ class ReportsController < ApplicationController
     end
     def create
         report = Report.new(params.require(:report).permit(:reporttype, :img, :petname, :species,
-             :gender, :color, :descriptions, :address,:city, :date, :phone, :email))
+             :gender, :color, :descriptions, :address,:city, :date, :age, :phone, :email))
         report.user_id = current_user.id
         report.save!
         redirect_to reports_path
@@ -34,7 +34,7 @@ class ReportsController < ApplicationController
     def update
         report = Report.find(params[:id])
         report.update(params.require(:report).permit(:reporttype, :img, :petname, :species,
-            :gender, :color, :descriptions, :address, :city, :date, :phone, :email))
+            :gender, :color, :descriptions, :address, :city, :date, :age, :phone, :email))
         redirect_to report
       end
       def destroy

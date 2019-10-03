@@ -6,20 +6,19 @@
         <div class="col-md-5 mb-2 text-white">
           <%# Drop Down List for Report Type%>
           <%= form.label :reporttype, "Report Type"%> <br>
-          <%= form.select :reporttype, ["Lost", "Found"], selected: "Lost" %>
+          <%= form.select :reporttype, ["Choose Report Type", "Lost", "Found", "Adoption"],{ disabled: 'Choose Report Type',  selected: 'Choose Report Type' } %>
         </div> 
-
         <div class="col-md-5 mb-2 text-white"> 
           <%# Upload Lost/Found Pet Image%>
           <%= form.label :img, "Pet Image"%>
-          <%= form.text_field :img, placeholder:"Add an Image URL"%> 
+          <%= form.url_field :img, placeholder:"Add an Image URL"%> 
           <%#= form.file_field :img%>
         </div> 
 
         <div class="col-md-5 mb-2 text-white">
           <%# Drop Down List For Pet Species With Default Value of Cat%>
           <%= form.label :species, "Pet Species"%> 
-          <%= form.select :species, ["Cat", "Dog", "Bird", "Small Animals"], selected: "Cat"%>
+          <%= form.select :species, ["Choose Pet Species", "Cat", "Dog", "Bird", "Small Animals"], { disabled: 'Choose Pet Species',  selected: 'Choose Pet Species' }%>
         </div>
 
         <div class="col-md-5 mb-2 text-white">
@@ -31,7 +30,7 @@
         <div class="col-md-5 mb-2 text-white">
           <%# Drop Down List For Pet Gender Default Value of Unknown%>
           <%= form.label :gender, "Pet Gender"%> 
-          <%= form.select :gender, ["Unknown", "Male", "Female"], selected: "UnKnown" %> 
+          <%= form.select :gender, ["Choose Pet Gender", "Unknown", "Male", "Female"], { disabled: 'Choose Pet Species',  selected: 'Choose Pet Species' } %> 
         </div>
 
         <div class="col-md-5 mb-2 text-white">
@@ -64,16 +63,22 @@
           <%= form.text_field :date, type: :date, placeholder:"dd-mm-yyyy"%>
         </div>
 
+      <div class="col-md-5 mb-2 text-white">
+        <%# Text Fild with Date Type to Write Pet Lost/Found Date%>
+          <%= form.label :age,"age"%> 
+          <%= form.date_field :age, type: :age, placeholder:"2 months/year"%>
+        </div>
+
         <div class="col-md-5 mb-2 text-white">
           <%# Text Fild to Write the User Phone Number%>
           <%= form.label :phone,"Phone Number" %>
-          <%= form.text_field :phone, placeholder:"xxx-xxx-xxxx"%>
+          <%= form.telephone_field :phone, placeholder:"xxx-xxx-xxxx"%>
         </div>
 
         <div class="col-md-5 mb-2 text-white">
         <%# Text Fild to Write the User Email Address%>
           <%= form.label :email, "Email Address" %> 
-          <%= form.text_field :email, placeholder:"email@example.com" %>
+          <%= form.email_field :email, placeholder:"email@example.com" %>
         </div>
 
         <div class="col-md-5 mb-2">
