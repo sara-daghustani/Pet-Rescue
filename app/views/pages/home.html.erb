@@ -11,9 +11,12 @@
             </p>
         </header> 
 
+
          <form class="form-inline">
-                <input class="form-control mr-sm-2 " type="search" placeholder="Search by City or Report Type">
-                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search </button>
+            <%= form_tag home_path, :method =>'get' do%>
+                <%= text_field_tag :search, params[:search],  class:"form-control mr-sm-2", placeholder:"Search by City or Report Type: Lost/found/adoption" %>
+                <%= submit_tag 'Search', class:"btn btn-outline-dark my-2 my-sm-0" %>
+            <% end%>
             </form>
             <br>
 <div class="row cardBody">
