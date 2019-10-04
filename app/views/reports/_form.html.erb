@@ -34,6 +34,11 @@
         </div>
 
         <div class="col-md-5 mb-2 text-white">
+          <%# Text filed List For Pet Breed Default Value of Unknown%>
+           <%= form.label :breed, "Pet Breed" %>
+          <%= form.text_field :breed,placeholder:"ex: Domestic Short Hair" %>
+        </div>
+        <div class="col-md-5 mb-2 text-white">
           <%# Text Field For Pet Color%>
           <%= form.label :color, "Pet Primary Color" %>
           <%= form.text_field :color,placeholder:"ex: Orange" %>
@@ -85,7 +90,6 @@
           <%# Submit%>
           <%= form.submit "Create A Report", class:"btn btn-primary my-2"%>
         </div>
-        
     </div>
   <% end %>
 </form>

@@ -32,28 +32,53 @@
                         <%end%>
                     <%end%> 
                 </div>  
-                 <p class="card-text text-danger">
-                    <strong> Pet Name </strong>  
-                    <br> 
+                 <p class="card-text text-danger mb-2 ">
+                    <strong> Pet Name </strong>  <br> 
                     <%=@report.petname%> is Lost
                 </p>
-                <p class="card-text text-danger">
+            
+        <div class="row">
+            <div class="col-lg-5">
+                <p class="card-text text-danger mb-2">
                     <strong> Pet Species </strong> <br> 
                     <%=@report.species%> 
                 </p>
-                <p class="card-text text-danger">
-                        <strong> Pet Gender</strong> <br>
+                <p class="card-text text-danger mb-2">
+                    <strong> Pet Color</strong> <br>
+                    <%=@report.color%> 
+                </p>
+            </div>
+
+            <div class="col-lg-5">
+                <p class="card-text text-danger mb-2">
+                    <strong> Pet Gender</strong> <br>
                     <%=@report.gender%> 
                 </p>
-                <p class="card-text text-danger">
-                    <strong>Pet Lost Address</strong><br>  
-                    <%= @report.address %>, <%= @report.city %>
+                <p class="card-text text-danger mb-2">
+                    <strong> Pet Breed</strong> <br>
+                    <%=@report.breed%> 
                 </p>
-                <p class="card-text text-danger">
+            </div> 
+
+            <div class="col-lg-5">
+               <p class="card-text text-danger mb-2">
                     <strong>Pet Lost Date</strong><br>  
                     <%= @report.date.strftime("%d/%m/%Y") %>
                 </p>
-                <p class="card-text text-danger">
+            </div>
+            <div class="col-lg-5">
+                 <p class="card-text text-danger mb-2">
+                    <strong>Pet Age</strong><br>  
+                    <%= @report.age %>
+                </p>
+            </div> 
+        </div>
+                <p class="card-text text-danger mb-2">
+                    <strong>Pet Lost Address</strong><br>  
+                    <%= @report.address %>, <%= @report.city %>
+                </p>
+
+                <p class="card-text text-danger mb-2">
                     <strong>Pet Descriptions:</strong> <br>
                     <%=@report.descriptions%>
                 </p>
@@ -90,28 +115,53 @@
                         <%end%>
                     <%end%> 
                 </div>  
-                 <p class="card-text text-success">
-                    <strong> Pet Name </strong>  
-                    <br> 
-                    I have found <%=@report.petname%> 
+                 <p class="card-text text-success mb-2 ">
+                    <strong> Pet Name </strong>  <br> 
+                   I have Found <%=@report.petname%> 
                 </p>
-                <p class="card-text text-success">
+            
+        <div class="row">
+            <div class="col-lg-5">
+                <p class="card-text text-success mb-2">
                     <strong> Pet Species </strong> <br> 
                     <%=@report.species%> 
                 </p>
-                <p class="card-text text-success">
+                <p class="card-text text-success mb-2">
+                    <strong> Pet Color</strong> <br>
+                    <%=@report.color%> 
+                </p>
+            </div>
+
+            <div class="col-lg-5">
+                <p class="card-text text-success mb-2">
                     <strong> Pet Gender</strong> <br>
                     <%=@report.gender%> 
                 </p>
-                <p class="card-text text-success">
-                    <strong>Pet Found Address</strong><br>  
-                    <%= @report.address %>, <%= @report.city %>
+                <p class="card-text text-success mb-2">
+                    <strong> Pet Breed</strong> <br>
+                    <%=@report.breed%> 
                 </p>
-                <p class="card-text text-success">
+            </div> 
+
+            <div class="col-lg-5">
+               <p class="card-text text-success mb-2">
                     <strong>Pet Found Date</strong><br>  
                     <%= @report.date.strftime("%d/%m/%Y") %>
                 </p>
-                <p class="card-text text-success">
+            </div>
+            <div class="col-lg-5">
+                 <p class="card-text text-success mb-2">
+                    <strong>Pet Age</strong><br>  
+                    <%= @report.age %>
+                </p>
+            </div> 
+        </div>
+                <p class="card-text text-success mb-2">
+                    <strong>Pet Found Address</strong><br>  
+                    <%= @report.address %>, <%= @report.city %>
+                </p>
+
+                <p class="card-text text-success mb-2">
                     <strong>Pet Descriptions:</strong> <br>
                     <%=@report.descriptions%>
                 </p>
@@ -121,13 +171,14 @@
         <%else%>
         <div class="row bg-light w-100 h-100 m-0 card-body" style="border:1px solid #5bc0de;">
             <div class="col-lg-6">
-                <%= image_tag(@report.img, alt: "Pet Image", class:"img-fluid rounded showimg mt-5", :style => "border: 1px solid #5bc0de")%> 
+                <%= image_tag(@report.img, alt: "Pet Image", class:"img-fluid rounded showimg", :style => "border: 1px solid #5bc0de")%> 
                
                     <div class="top-left ml-1"> 
                             <h5 class= "none btn btn-info btn-sm disabled " > 
                                 <%=@report.reporttype%>
                             </h5> 
                     </div>
+             
                 <hr>
                 <address>
                     <strong>Contact me</strong>
@@ -147,32 +198,53 @@
                         <%end%>
                     <%end%> 
                 </div>  
-                 <p class="card-text text-info ">
-                    <strong> Pet Name </strong>  
-                    <br> 
+                 <p class="card-text text-info mb-2 ">
+                    <strong> Pet Name </strong>  <br> 
                     <%=@report.petname%> is for Adoption
                 </p>
-                <p class="card-text text-info">
+            
+        <div class="row">
+            <div class="col-lg-5">
+                <p class="card-text text-info mb-2">
                     <strong> Pet Species </strong> <br> 
                     <%=@report.species%> 
                 </p>
-                <p class="card-text text-info">
+                <p class="card-text text-info mb-2">
+                    <strong> Pet Color</strong> <br>
+                    <%=@report.color%> 
+                </p>
+            </div>
+
+            <div class="col-lg-5">
+                <p class="card-text text-info mb-2">
                     <strong> Pet Gender</strong> <br>
                     <%=@report.gender%> 
                 </p>
-                <p class="card-text text-info">
+                <p class="card-text text-info mb-2">
+                    <strong> Pet Breed</strong> <br>
+                    <%=@report.breed%> 
+                </p>
+            </div> 
+
+            <div class="col-lg-5">
+               <p class="card-text text-info mb-2">
+                    <strong>Pet Birthday</strong><br>  
+                    <%= @report.date.strftime("%d/%m/%Y") %>
+                </p>
+            </div>
+            <div class="col-lg-5">
+                 <p class="card-text text-info mb-2">
+                    <strong>Pet Age</strong><br>  
+                    <%= @report.age %>
+                </p>
+            </div> 
+        </div>
+                <p class="card-text text-info mb-2">
                     <strong>Pet Adoption Address</strong><br>  
                     <%= @report.address %>, <%= @report.city %>
                 </p>
-                <p class="card-text text-info">
-                    <strong>Pet Adoption Birthday</strong><br>  
-                    <%= @report.date.strftime("%d/%m/%Y") %>
-                </p>
-                 <p class="card-text text-info">
-                    <strong>Pet Adoption Age</strong><br>  
-                    <%= @report.address %>, <%= @report.city %>
-                </p>
-                <p class="card-text text-info">
+
+                <p class="card-text text-info mb-2">
                     <strong>Pet Descriptions:</strong> <br>
                     <%=@report.descriptions%>
                 </p>
