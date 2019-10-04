@@ -14,7 +14,9 @@
 
          <form class="form-inline">
             <%= form_tag home_path, :method =>'get' do%>
-                <%= text_field_tag :search, params[:search],  class:"form-control mr-sm-2", placeholder:"Search by City or Report Type: Lost/found/adoption" %>
+                 <%= text_field_tag :reporttype, params[:reporttype], placeholder:"Report Type Lost/found/ adoption" %> 
+                 <%= text_field_tag :city, params[:city], placeholder:"City" %> 
+                <%= text_field_tag :species, params[:species], placeholder:"Species" %> 
                 <%= submit_tag 'Search', class:"btn btn-outline-dark my-2 my-sm-0" %>
             <% end%>
             </form>
