@@ -2,6 +2,8 @@ class ReportsController < ApplicationController
     before_action :authenticate_user!, only: [:index, :create, :edit, :update, :destroy, :new, :show]
     before_action :check_id, only: [:index]
     before_action :check_if_owner, only: [:edit, :update, :destroy,]
+   
+
     def index
      
     end
