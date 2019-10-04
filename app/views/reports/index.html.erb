@@ -1,13 +1,13 @@
 
-<div class="container">  
-  <div class="text-white jumbotron my-4">
+<div class="container ShowcardBody my-4">  
+  <div class="bg-light w-100 h-100 m-0 card-body">
     <p class="d-content">
       <%=link_to "Add A Report", new_report_path, class:"btn btn-light"%>
     </p>
-    <h1 class=" display-4 text-center mb-5 text-white"> My Pet Reports</h1>
+    <h2 class=" text-center"> My Pet Reports</h2>
         
     <div class="table-responsive-xl">
-      <table class="table" style= "text-align:center; align-item:center;">
+      <table class="table" style= "text-align:center;">
         <thead class="thead">
           <tr>
             <th scope="col">Status</th>
@@ -26,19 +26,37 @@
               <tr>
                 <% if report.reporttype == "Lost" %>
                 <td style ="color: red"><%=report.reporttype%></td>
-                <%else%> 
+                <td style ="color: red"><%= image_tag(report.img, size: "50x50", alt: "Pet Image") %></td>
+                <td style ="color: red"><%=report.petname%></td>
+                <td style ="color: red"><%=report.species%></td>
+                <td style ="color: red"><%=report.color%></td>
+                <td style ="color: red"><%=report.address%>, <%=report.city%></td>
+                <td style ="color: red"><%=report.date.strftime("%b %e, %Y ")%></td>
+
+                <%elsif report.reporttype == "Found"%> 
                 <td style ="color: green"><%=report.reporttype%></td>
-                <%end%>
-                <td><%= image_tag(report.img, size: "50x50", alt: "Pet Image") %></td>
-                <td><%=report.petname%></td>
-                <td><%=report.species%></td>
-                <td><%=report.color%></td>
-                <td><%=report.address%>, <%=report.city%></td>
-                <td><%=report.date.strftime("%b %e, %Y ")%></td>
-                <td><%= link_to "Show", report_path(report), class:"link-btn" %> |
+                <td style ="color: green"><%= image_tag(report.img, size: "50x50", alt: "Pet Image") %></td>
+                <td style ="color: green"><%=report.petname%></td>
+                <td style ="color: green"><%=report.species%></td>
+                <td style ="color: green"><%=report.color%></td>
+                <td style ="color: green"><%=report.address%>, <%=report.city%></td>
+                <td style ="color: green"><%=report.date.strftime("%b %e, %Y ")%></td>
+                
+                <%else%>
+                <td style ="color: #5bc0de;"><%=report.reporttype%></td>
+                <td style ="color: #5bc0de;"><%= image_tag(report.img, size: "50x50", alt: "Pet Image") %></td>
+                <td style ="color: #5bc0de;"><%=report.petname%></td>
+                <td style ="color: #5bc0de;"><%=report.species%></td>
+                <td style ="color: #5bc0de;"><%=report.color%></td>
+                <td style ="color: #5bc0de;"><%=report.address%>, <%=report.city%></td>
+                <td style ="color: #5bc0de;"><%=report.date.strftime("%b %e, %Y ")%></td>
+                 <%end%>
+                <td> 
+                <%= link_to "Show", report_path(report), class:"link-btn" %> |
                <%= link_to "Edit", edit_report_path(report), class:"link-btn"%> |
                <%= link_to "Delete", report_path(report),class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%></td>
               </tr>
+              
             <% end %>
           </tbody>
       </table>

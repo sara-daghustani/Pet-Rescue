@@ -5,18 +5,16 @@
 <div class="form-group font-weight-bold">
   <div class="row m-auto">
   <%# Text Area for User to Write a Comment. It will Contain the Content and the User ID %>
-    <%= form.text_area :content, width: "25",  placeholder: "Write a comment" %> 
+    <%= form.text_area :content, class:"form-control", id:"addComment", rows:"5" %> 
+    
     <div class="ml-1">
-    <%= form.submit "Post", class:"btn btn-outline-dark my-2"%>
+    <%= form.submit "Submit Comment", class:"btn btn-outline-dark my-2"%>
     </div>
+
       <%if @report%>
         <%= form.hidden_field :report_id, :value => @report.id %>
-      <%end%>
-       
+      <%end%>  
   </div>
-
-   
-
 </div>
 <% end %>
 

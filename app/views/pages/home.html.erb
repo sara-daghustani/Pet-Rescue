@@ -1,16 +1,16 @@
 
 <body> 
-    <div class="container">  
+    <div class="container">   
+     
         <header class="jumbotron bg my-4 mt-5">
             <h1 class="display-4 text-white">Pet Rescue!</h1>
             <p class="lead text-white"> Losing Your Baby can be scary and painful experience,<br> 
             This is why we are here to reunite owners with their pets.</p>
             <br class="my-5">
             <p class="lead">
-                <%=link_to "Report A Lost or Found Pet!", new_report_path, class:"btn btn-light"%> 
+                <%=link_to "Report a Lost / Found / Adoption Pet!", new_report_path, class:"btn btn-light"%> 
             </p>
         </header> 
-
 
          <form class="form-inline">
             <%= form_tag home_path, :method =>'get' do%>
@@ -95,7 +95,7 @@
                     </div>
                 </div> 
             <%end%>  
-        <%end%>    
+        <%end%>  
     </div>
 </div>
 </body>

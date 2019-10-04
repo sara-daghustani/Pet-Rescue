@@ -15,15 +15,13 @@
     <%= yield %>
 
   <footer class="footer navbar-fixed-bottom">
+      
       <div class="container text-center">
-       <span class="text-muted ">Copyright &copy; Sara Daghustani 2019.</span>
+      <%# There are <%= User.all.length %>
+       <span class="text-muted ">
+       Copyright &copy; Sara 2019. &nbsp Number of Users: &nbsp <%=User.count %> 
+        </span>      
      </div>
     </footer>
-
-    <%# <footer class="py-2 bg-light">
-    <div class="container">
-      <p class="m-0 text-center text-dark">Copyright &copy; Sara Daghustani 2019</p>
-    </div>
-  </footer> %>
   </body>
 </html>

@@ -253,31 +253,50 @@
     <%end%>
 </div>
 
-
-
-
-
- <div class="col-lg-5 mt-4 ml-4">
-            <%= render 'comments/form'%> 
-    </div>
- <div class="col-lg-5">
-            <div class="row-lg-9 d-flex justify-content-between">
-                <h4> <%= @report.comments.count%>  Comments</h4> 
-                <h4> Comments </h4>
+<div class="container ShowcardBody my-4">
+    <div class="row bg-light w-100 h-100 m-0 card-body">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-7">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs mt-2 " id="myTab" role="tablist">
+                    <li class="nav-item ">
+                        <a class="nav-link active" data-toggle="tab" href="#form" role="tab" aria-controls="form" aria-selected="true">Leave a Comment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"  data-toggle="tab" href="#comments" role="tab" aria-controls="comments" aria-selected="false"> <%= @report.comments.count%>  Comments </a>
+                    </li>
+                </ul>
             </div>
-            <hr>
-            <%@report.comments.each do |r| %> 
-            <div class="row-lg-9 d-flex justify-content-between">
-                <h6 ><%= r.user.name%></h6>
-                <div>
-                    <%if user_signed_in? %>
-                        <%if current_user.id == r.user_id%>
-                            <%= link_to "Edit", edit_comment_path(r), class:"link-btn" %> |
-                            <%= link_to "Delete", comment_path(r), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
-                        <%end%>
-                    <%end%>
+
+            <div class="card-body">
+                <div class="tab-content mb-5" id="myTabContent">
+                    <div class="tab-pane active" id="form" role="tabpanel" aria-labelledby="form-tab">
+                            <h4 class="card-title">Leave a Comment</h4>
+                            <h6 class="card-subtitle mb-2"> <%= render 'comments/form'%> </h6>       
+                    </div>
+
+                    <div class="tab-pane " id="comments" role="tabpanel" aria-labelledby="comments-tab">
+                        <%@report.comments.each do |r| %> 
+                        <div class="row-lg-6 d-flex justify-content-between">
+                            <h6 ><%= r.user.name%></h6>
+                            <div>
+                                <%if user_signed_in? %>
+                                    <%if current_user.id == r.user_id%>
+                                        <%= link_to "Edit", edit_comment_path(r), class:"link-btn" %> |
+                                        <%= link_to "Delete", comment_path(r), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
+                                    <%end%>
+                                <%end%>
+                            </div>
+                        </div> 
+                        <p class="card-text"><%= r.content%>.</p>
+                        <%end%> 
+                    </div>
                 </div>
-             </div> 
-            <h6> <%= r.content%> </h6>
-             <%end%>
+            </div>
+            
         </div>
+    </div>
+</div>
+
+
+
+
