@@ -23,7 +23,11 @@
             <br>
 <div class="row cardBody">
         <% @reports.each do |report| %>
+<<<<<<< HEAD
         <%# ######################## Lost ################### %>
+=======
+        <%# ########################## Lost ######################## %>
+>>>>>>> 60594dfa30a437af3627088f06e2c7a8ae1cc80b
             <% if report.reporttype == "Lost"%> 
                 <div class="col-lg-3 col-md-6 py-3">
                     <div class="card h-100 text-black border-danger">
@@ -73,7 +77,11 @@
                     </div>
                 </div> 
                 <%else%> 
+<<<<<<< HEAD
                 <%# ######################## Adoption ################### %>
+=======
+                <%# ########################## adoption ######################## %>
+>>>>>>> 60594dfa30a437af3627088f06e2c7a8ae1cc80b
                 <div class="col-lg-3 col-md-6 py-3">
                     <div class="card h-100 text-black border-info">
                             <%= image_tag(report.img.variant(auto_orient: true, gravity: "center"), alt: "Pet Image", class:"card-img-top", height:"200") %>
