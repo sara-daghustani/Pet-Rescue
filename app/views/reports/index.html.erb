@@ -26,7 +26,7 @@
               <tr>
                 <% if report.reporttype == "Lost" %>
                 <td style ="color: red"><%=report.reporttype%></td>
-                <td style ="color: red"><%= image_tag(report.img, size: "50x50", alt: "Pet Image") %></td>
+                <td style ="color: red"><%= image_tag(report.img.variant(auto_orient: true, gravity: "center"), size: "50x50", alt: "Pet Image") %></td>
                 <td style ="color: red"><%=report.petname%></td>
                 <td style ="color: red"><%=report.species%></td>
                 <td style ="color: red"><%=report.color%></td>
@@ -35,7 +35,7 @@
 
                 <%elsif report.reporttype == "Found"%> 
                 <td style ="color: green"><%=report.reporttype%></td>
-                <td style ="color: green"><%= image_tag(report.img, size: "50x50", alt: "Pet Image") %></td>
+                <td style ="color: green"><%= image_tag(report.img.variant(auto_orient: true, gravity: "center"), size: "50x50", alt: "Pet Image") %></td>
                 <td style ="color: green"><%=report.petname%></td>
                 <td style ="color: green"><%=report.species%></td>
                 <td style ="color: green"><%=report.color%></td>
@@ -44,7 +44,7 @@
                 
                 <%else%>
                 <td style ="color: #5bc0de;"><%=report.reporttype%></td>
-                <td style ="color: #5bc0de;"><%= image_tag(report.img, size: "50x50", alt: "Pet Image") %></td>
+                <td style ="color: #5bc0de;"><%= image_tag(report.img.variant(auto_orient: true, gravity: "center"), size: "50x50", alt: "Pet Image") %></td>
                 <td style ="color: #5bc0de;"><%=report.petname%></td>
                 <td style ="color: #5bc0de;"><%=report.species%></td>
                 <td style ="color: #5bc0de;"><%=report.color%></td>

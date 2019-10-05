@@ -23,10 +23,11 @@
             <br>
 <div class="row cardBody">
         <% @reports.each do |report| %>
+        <%# ######################## Lost ################### %>
             <% if report.reporttype == "Lost"%> 
                 <div class="col-lg-3 col-md-6 py-3">
                     <div class="card h-100 text-black border-danger">
-                                <%= image_tag(report.img, alt: "Pet Image", class:"card-img-top", height:"200") %>
+                                <%= image_tag(report.img.variant(auto_orient: true, gravity: "center"), alt: "Pet Image", class:"card-img-top", height:"200") %>
                                 <div class="top-left"> 
                                             <h5 class= "none btn btn-danger btn-sm disabled " > 
                                                 <%=report.reporttype%>
@@ -45,11 +46,12 @@
                         </div>
                            <%= link_to "Find Out More!", report_path(report), class:"btn btn-danger" %>
                     </div>
-                </div>     
+                </div>    
+                <%# ######################## Found ################### %> 
             <%elsif report.reporttype == "Found"%>
                 <div class="col-lg-3 col-md-6 py-3">
                     <div class="card h-100 text-black border-success">
-                            <%= image_tag(report.img, alt: "Pet Image", class:"card-img-top", height:"200") %>
+                            <%= image_tag(report.img.variant(auto_orient: true, gravity: "center"), alt: "Pet Image", class:"card-img-top", height:"200") %>
                             <div class="top-left">
                                         <h5 class= "none btn btn-success btn-sm disabled" > 
                                             <%=report.reporttype%>
@@ -71,9 +73,10 @@
                     </div>
                 </div> 
                 <%else%> 
+                <%# ######################## Adoption ################### %>
                 <div class="col-lg-3 col-md-6 py-3">
                     <div class="card h-100 text-black border-info">
-                            <%= image_tag(report.img, alt: "Pet Image", class:"card-img-top", height:"200") %>
+                            <%= image_tag(report.img.variant(auto_orient: true, gravity: "center"), alt: "Pet Image", class:"card-img-top", height:"200") %>
                             <div class="top-left">
                                         <h5 class= "none btn btn-info btn-sm disabled" > 
                                             <%=report.reporttype%>

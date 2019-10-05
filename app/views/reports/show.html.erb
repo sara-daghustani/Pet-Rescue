@@ -4,7 +4,7 @@
     <% if @report.reporttype == "Lost"%> 
         <div class="row bg-light w-100 h-100 m-0 card-body" style="border:1px solid red;">
             <div class="col-lg-6">
-                <%= image_tag(@report.img, alt: "Pet Image", class:"img-fluid rounded showimg", :style => "border: 1px solid red" )%> 
+                <%= image_tag(@report.img.variant(auto_orient: true, gravity: "center"), alt: "Pet Image", class:"img-fluid rounded showimg", :style => "border: 1px solid red" )%> 
                
                     <div class="top-left ml-1"> 
                             <h5 class= "none btn btn-danger btn-sm disabled " > 
@@ -88,7 +88,7 @@
     <%elsif @report.reporttype == "Found"%>
        <div class="row bg-light w-100 h-100 m-0 card-body" style="border:1px solid green;">
             <div class="col-lg-6">
-                <%= image_tag(@report.img, alt: "Pet Image", class:"img-fluid rounded showimg", :style => "border: 1px solid green")%> 
+                <%= image_tag(@report.img.variant(auto_orient: true, gravity: "center"), alt: "Pet Image", class:"img-fluid rounded showimg", :style => "border: 1px solid green")%> 
                
                     <div class="top-left ml-1"> 
                             <h5 class= "none btn btn-success btn-sm disabled " > 
@@ -171,7 +171,7 @@
         <%else%>
         <div class="row bg-light w-100 h-100 m-0 card-body" style="border:1px solid #5bc0de;">
             <div class="col-lg-6">
-                <%= image_tag(@report.img, alt: "Pet Image", class:"img-fluid rounded showimg", :style => "border: 1px solid #5bc0de")%> 
+                <%= image_tag(@report.img.variant(auto_orient: true, gravity: "center"), alt: "Pet Image", class:"img-fluid rounded showimg", :style => "border: 1px solid #5bc0de")%> 
                
                     <div class="top-left ml-1"> 
                             <h5 class= "none btn btn-info btn-sm disabled " > 
