@@ -21,27 +21,27 @@
             <% end%>
             </form>
             <br>
-<div class="row cardBody">
+<div class="row cardBody py-5">
         <% @reports.each do |report| %>
         <%# ######################## Lost ################### %>
             <% if report.reporttype == "Lost"%> 
-                <div class="col-lg-3 col-md-6 py-3">
+                <div class="col-lg-3 col-md-6 py-2">
                     <div class="card h-100 text-black border-danger">
-                                <%= image_tag(report.img.variant(auto_orient: true, gravity: "center"), alt: "Pet Image", class:"card-img-top", height:"200") %>
+                                <%= image_tag(report.img.variant(auto_orient: true, gravity: "center"), alt: "Pet Image", class:"card-img-top", height:"255") %>
                                 <div class="top-left"> 
                                             <h5 class= "none btn btn-danger btn-sm disabled " > 
                                                 <%=report.reporttype%>
                                             </h5> 
                                 </div>
                              <div class="card-body bg-light">
-                            <h3 class="card-title"> <%= report.petname %></h3>
-                            <p class="card-text"><strong>Pet <%=report.reporttype%> Gender</strong><br>  
+                            <h3 class="card-title mb-1"> <%= report.petname %></h3>
+                            <p class="card-text mb-1"><strong>Pet <%=report.reporttype%> Gender</strong><br>  
                             <%=report.gender%> 
                             </p>
-                            <p class="card-text"><strong>Pet <%=report.reporttype%> Date</strong><br>  
+                            <p class="card-text mb-1"><strong>Pet <%=report.reporttype%> Date</strong><br>  
                             <%= report.date.strftime("%d/%m/%Y") %>
                             </p>
-                            <p class="card-text"><strong>Pet <%=report.reporttype%> Address</strong><br>  
+                            <p class="card-text mb-1"><strong>Pet <%=report.reporttype%> Address</strong><br>  
                             <%= report.address %>, <%= report.city %></p>
                         </div>
                            <%= link_to "Find Out More!", report_path(report), class:"btn btn-danger" %>
@@ -49,23 +49,23 @@
                 </div>    
                 <%# ######################## Found ################### %> 
             <%elsif report.reporttype == "Found"%>
-                <div class="col-lg-3 col-md-6 py-3">
+                <div class="col-lg-3 col-md-6 py-2">
                     <div class="card h-100 text-black border-success">
-                            <%= image_tag(report.img.variant(auto_orient: true, gravity: "center"), alt: "Pet Image", class:"card-img-top", height:"200") %>
+                            <%= image_tag(report.img.variant(auto_orient: true, gravity: "center"), alt: "Pet Image", class:"card-img-top", height:"255") %>
                             <div class="top-left">
                                         <h5 class= "none btn btn-success btn-sm disabled" > 
                                             <%=report.reporttype%>
                                         </h5>   
                             </div>
-                        <div class="card-body bg-light">
-                            <h3 class="card-title"> <%= report.petname %></h3>
-                            <p class="card-text"><strong>Pet <%=report.reporttype%> Gender</strong><br>  
+                        <div class="card-body bg-light ">
+                            <h3 class="card-title mb-1"> <%= report.petname %></h3>
+                            <p class="card-text mb-1"><strong>Pet <%=report.reporttype%> Gender</strong><br>  
                             <%=report.gender%> 
                             </p>
-                            <p class="card-text"><strong>Pet <%=report.reporttype%> Date</strong><br>  
+                            <p class="card-text mb-1"><strong>Pet <%=report.reporttype%> Date</strong><br>  
                             <%= report.date.strftime("%d/%m/%Y") %>
                             </p>
-                            <p class="card-text"><strong>Pet <%=report.reporttype%> Address</strong><br>  
+                            <p class="card-text mb-1"><strong>Pet <%=report.reporttype%> Address</strong><br>  
                             <%= report.address %>, <%= report.city %></p>
                         </div>
 
@@ -74,23 +74,23 @@
                 </div> 
                 <%else%> 
                 <%# ######################## Adoption ################### %>
-                <div class="col-lg-3 col-md-6 py-3">
-                    <div class="card h-100 text-black border-info">
-                            <%= image_tag(report.img.variant(auto_orient: true, gravity: "center"), alt: "Pet Image", class:"card-img-top", height:"200") %>
+                <div class="col-lg-3 col-md-6 py-2 ">
+                    <div class="card text-black border-info">
+                            <%= image_tag(report.img.variant(auto_orient: true, gravity: "center"), alt: "Pet Image", class:"card-img-top", height:"255") %>
                             <div class="top-left">
                                         <h5 class= "none btn btn-info btn-sm disabled" > 
                                             <%=report.reporttype%>
                                         </h5>   
                             </div>
                         <div class="card-body bg-light">
-                            <h3 class="card-title"> <%= report.petname %></h3>
-                            <p class="card-text"><strong>Pet <%=report.reporttype%> Gender</strong><br>  
+                            <h3 class="card-title mb-1"> <%= report.petname %></h3>
+                            <p class="card-text mb-1"><strong>Pet <%=report.reporttype%> Gender</strong><br>  
                             <%=report.gender%> 
                             </p>
-                            <p class="card-text"><strong>Pet <%=report.reporttype%> Age </strong><br>  
+                            <p class="card-text mb-1"><strong>Pet <%=report.reporttype%> Age </strong><br>  
                             Around <%=report.age%> 
                             </p>
-                            <p class="card-text"><strong>Pet <%=report.reporttype%> Address</strong><br>  
+                            <p class="card-text mb-1"><strong>Pet <%=report.reporttype%> Address</strong><br>  
                             <%= report.address %>, <%= report.city %></p>
                         </div>
 
