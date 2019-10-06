@@ -25,6 +25,7 @@ def update
     comment.update(params.require(:comment).permit(:content))
     redirect_to report_path(comment.report)
   end
+  
   def destroy
     Comment.find(params[:id]).destroy
     redirect_to request.referer
@@ -35,6 +36,7 @@ def update
       def check_if_owner
         @comment = Comment.find(params[:id])
         if current_user.id != @comment.user_id
+        elsif current_user.admin == false
         redirect_to @report
         end
       end

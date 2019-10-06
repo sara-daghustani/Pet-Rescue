@@ -3,7 +3,7 @@
  <span class="navbar-text">
       <h5 class="text-white text-right"> YOU Can't Buy LOVE but You Can RESCUE IT</h5> 
     </span>
-    
+     
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -16,24 +16,32 @@
           <%=link_to "Add A Report", new_report_path, class:"nav-link font-weight-bold text-white"%>
       </li>
       <%if user_signed_in? %>
-      <li class="nav-item">
-         <%=link_to "My Reports", reports_path, class:"nav-link font-weight-bold text-white"%>
-      </li>
-      <li class="nav-item">
-         <%=link_to "My Profile", profile_path, class:"nav-link font-weight-bold text-white"%>
-      </li>
-      <li class="nav-item">
-            <%=link_to "Sign Out", destroy_user_session_path, method: :delete, class:"nav-link font-weight-bold text-black" %>
-          </li>
-            <%else%>
-          <li class="nav-item">
-            <%=link_to "Sign In ", new_user_session_path, class:"nav-link font-weight-bold text-white"%>  
-          </li>
-          <li class="nav-item">
-            <%=link_to "Sign Up", new_user_registration_path, class:"nav-link font-weight-bold text-white"%>  
-          </li>
-          <%end%>
+        <li class="nav-item">
+          <%=link_to "My Reports", reports_path, class:"nav-link font-weight-bold text-white"%>
+        </li>
+        <li class="nav-item">
+          <%=link_to "My Profile", profile_path, class:"nav-link font-weight-bold text-white"%>
+        </li>
+          <%if current_user.admin == true %>
+         <li class="nav-item">
+          <%=link_to "Sign Out Admin", destroy_user_session_path, method: :delete, class:"nav-link font-weight-bold text-black" %> 
+        </li>
+              <%else%>
+             
+        <li class="nav-item">
+          <%=link_to "Sign Out", destroy_user_session_path, method: :delete, class:"nav-link font-weight-bold text-black" %> 
+        </li>
+        <%end%>
+      <%else%>
+        <li class="nav-item">
+          <%=link_to "Sign In ", new_user_session_path, class:"nav-link font-weight-bold text-white"%>  
+        </li>
+        <li class="nav-item">
+          <%=link_to "Sign Up", new_user_registration_path, class:"nav-link font-weight-bold text-white"%>  
+        </li>
+      <%end%>    
     </ul>
+     
   </div>
 </nav>
 

@@ -29,6 +29,9 @@
                         <%if current_user.id == @report.user_id%>
                             <%= link_to "Edit", edit_report_path(@report),  class:"link-btn"%> |
                             <%= link_to "Delete", report_path(@report), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
+                        <%elsif current_user.admin == true %>
+                            <%= link_to "Edit", edit_report_path(@report),  class:"link-btn"%> |
+                            <%= link_to "Delete", report_path(@report), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
                         <%end%>
                     <%end%> 
                 </div>  
@@ -107,9 +110,12 @@
                 </address>
             </div> 
             <div class="col-lg-6 ">
-            <div class=" text-right">   
-                <%if user_signed_in?%>
+                <div class=" text-right">   
+                    <%if user_signed_in? %>
                         <%if current_user.id == @report.user_id%>
+                            <%= link_to "Edit", edit_report_path(@report),  class:"link-btn"%> |
+                            <%= link_to "Delete", report_path(@report), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
+                        <%elsif current_user.admin == true %>
                             <%= link_to "Edit", edit_report_path(@report),  class:"link-btn"%> |
                             <%= link_to "Delete", report_path(@report), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
                         <%end%>
@@ -193,6 +199,9 @@
             <div class=" text-right">   
                 <%if user_signed_in?%>
                         <%if current_user.id == @report.user_id%>
+                            <%= link_to "Edit", edit_report_path(@report),  class:"link-btn"%> |
+                            <%= link_to "Delete", report_path(@report), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
+                        <%elsif current_user.admin == true %>
                             <%= link_to "Edit", edit_report_path(@report),  class:"link-btn"%> |
                             <%= link_to "Delete", report_path(@report), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
                         <%end%>
@@ -283,6 +292,9 @@
                                     <%if current_user.id == r.user_id%>
                                         <%= link_to "Edit", edit_comment_path(r), class:"link-btn" %> |
                                         <%= link_to "Delete", comment_path(r), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
+                                    <%elsif current_user.admin == true %>
+                                        <%= link_to "Edit", edit_report_path(@report),  class:"link-btn"%> |
+                                        <%= link_to "Delete", report_path(@report), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
                                     <%end%>
                                 <%end%>
                             </div>

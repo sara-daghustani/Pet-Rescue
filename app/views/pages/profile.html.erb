@@ -37,6 +37,16 @@
                             <p><%= current_user.email%></p>
                         </div>
                     </div>
+                     <%if current_user.admin == true %>
+                       <div class="row">
+                        <div class="col-md-6">
+                            <label>User Admin</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p><%= current_user.admin%></p>
+                        </div>
+                    </div>     
+                    <%end%> 
                 </div>
             </div>
             <div class="col-md-2 mt-3">

@@ -52,6 +52,7 @@
                 <td style ="color: #5bc0de;"><%=report.date.strftime("%b %e, %Y ")%></td>
                  <%end%>
                 <td> 
+                
                 <%= link_to "Show", report_path(report), class:"link-btn" %> |
                <%= link_to "Edit", edit_report_path(report), class:"link-btn"%> |
                <%= link_to "Delete", report_path(report),class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%></td>
