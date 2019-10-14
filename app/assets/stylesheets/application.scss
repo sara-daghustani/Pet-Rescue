@@ -17,9 +17,6 @@
  */
 
 
-
-
- 
 .profile-img{
     text-align: center;
 }
@@ -45,7 +42,7 @@
     background-image: image-url("background6.png");
     background-position: bottom right;
     background-repeat: no-repeat;
-    background-size: 570px; 
+    background-size: 52%; 
     background-color: rgba(0, 0, 0, 0.486);
 }
 
@@ -81,7 +78,7 @@
     background-image: image-url("background4.png");
     background-position: bottom center;
     background-repeat: no-repeat;
-    background-size: 950px; 
+    background-size: 60%; 
 }
 
 
@@ -94,6 +91,10 @@
     background-repeat: no-repeat;
     background-size: 950px; 
 }
+
+
+
+
 
 .card-img-top{
     cursor: default;
@@ -164,4 +165,27 @@ thead{
 }
 .comments-list .media{
     border-bottom: 1px dotted #ccc;
+}
+
+.forminput {
+    width: 66%;
+    border-radius: 5px;
+}
+.upload{
+    border:1px solid white;
+    border-radius: 5px;
+}
+select {
+    width: 66%;
+    height: 30px;
+    background-color: white;
+}
+textarea{
+    width: 66%;
+    height: 70px;
+    border:1px solid white;
+}
+
+#search{
+    width: 28%;
 }

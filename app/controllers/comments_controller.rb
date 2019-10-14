@@ -8,6 +8,7 @@ def new
     @comment = Comment.new
     
 end
+
 def create
     comment = Comment.create(params.require(:comment).permit(:content, :report_id))
     comment.user_id = current_user.id

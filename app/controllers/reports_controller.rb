@@ -3,8 +3,7 @@ class ReportsController < ApplicationController
     before_action :check_id, only: [:index]
     before_action :check_if_owner, only: [:edit, :update, :destroy,]
     
-    
-    
+ 
     def index
      
     end
@@ -23,24 +22,20 @@ class ReportsController < ApplicationController
         @report = Report.find(params[:id])
         @comment = Comment.new  
       
-      #   respond_to do |format|
-      #     format.html 
-      #     format.pdf do
-      #       pdf = ReportPdf.new(@report)
-      #       send_data pdf.render, filename: 'report.pdf', type: 'appliaction/pdf', disposition: 'inline'
-      #   end
-      # end
     end
 
     def edit
         @report = Report.find(params[:id])
     end
+
+    
     def update
         report = Report.find(params[:id])
         report.update(params.require(:report).permit(:reporttype, :img, :petname, :species,
             :gender, :color, :descriptions, :address, :city, :date, :age, :breed, :phone, :email))
         redirect_to report
       end
+
       def destroy
         Report.find(params[:id]).destroy
         redirect_to reports_path

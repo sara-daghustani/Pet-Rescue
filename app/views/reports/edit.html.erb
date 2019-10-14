@@ -1,24 +1,32 @@
 
+
 <div class="container">  
-    
-   <div class="text-black jumbotron my-4 ">
-      <p class="d-flex justify-content-end">
-               <%# <%=image_tag("we.png", size:"20x20")%>
-               <%if user_signed_in?%>
-               Welcome <%= current_user.email%>
-               <%end%>
-      </p>
-    
+  
+   <div class="text-black jumbotron my-4 text-white">
+
       <div class="row align-items-center">
          <div class="col-lg-5">
-            <h1 class="display-5">Edit A Report</h1>
+            <h1 class="display-5"> Edit A Report</h1>
             <p><%= render 'reports/form' %></p>
          </div>
          <div class="col-lg-7">
-            <h1 class=" display-3"> Edit A Lost or Found Pet Report</h1>
-            <%=image_tag("background7.jpeg",class:"img-fluid rounded" )%>
+            <h1 class=" display-4"> Report A Lost or Found or Adoption Pet</h1>
+            <%=image_tag("pets4.jpg",class:"img-fluid rounded" )%>
          </div>
       </div>
    </div>
 </div>
 
+
+
+
+
+<%# <div class="container ShowcardBody my-4">  
+    
+   <div class="bg-light w-100 h-100 m-0 card-body">
+
+            <h1 class="display-5 text-center">Edit A Report</h1>
+            <p> <%= render 'reports/form' %>
+            <%# </p> %>
+   <%# </div>
+</div> %> 

@@ -1,11 +1,12 @@
+<p id="notice"><%= notice %></p>
 
 <div class="container">  
-      
+    
    <div class="text-black jumbotron my-4 text-white">
      <p class="d-flex justify-content-end">
-            <%# <%=image_tag("we.png", size:"20x20")%>
+             <%=image_tag("we.png", size:"20x20")%> &nbsp
             <%if user_signed_in?%>
-            Welcome <%= current_user.email%>
+             Welcome <%= current_user.name %>
             <%end%>
       </p>
       
@@ -15,7 +16,7 @@
             <p><%= render 'reports/form' %></p>
          </div>
          <div class="col-lg-7">
-            <h1 class=" display-3"> Report A Lost or Found Pet</h1>
+            <h1 class=" display-4"> Report A Lost or Found or Addoption Pet</h1>
             <%=image_tag("pets4.jpg",class:"img-fluid rounded" )%>
          </div>
       </div>

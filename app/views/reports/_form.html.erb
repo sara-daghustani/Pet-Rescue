@@ -1,94 +1,92 @@
 <%# Form for Users to Write a Report About a Lost/Found Pet%>
 
-  <%= form_for @report do |form| %> 
-
+  <%= form_for @report do |form|  %>
+ 
     <div class="form-group font-weight-bold">
-        <div class="col-md-5 mb-2 text-white">
+        <div class=" mb-2">
           <%# Drop Down List for Report Type%>
           <%= form.label :reporttype, "Report Type"%> <br>
-          <%= form.select :reporttype, ["Choose Report Type", "Lost", "Found", "Adoption"],{ disabled: 'Choose Report Type',  selected: 'Choose Report Type' } %>
+          <%= form.select :reporttype, ["Choose Report Type", "Lost", "Found", "Adoption"],{ disabled: 'Choose Report Type' }, class:"forminput" %>
         </div> 
-        <div class="col-md-5 mb-2 text-white"> 
+        <div class=" mb-2"> 
           <%# Upload Lost/Found Pet Image%>
-          <%= form.label :img, "Pet Image"%>
-          <%= form.file_field :img, placeholder:"Add an Image URL"%> 
-          <%#= form.file_field :img%>
+          <%= form.label :img, "Pet Image"%><br>
+          <%= form.file_field :img, class:"forminput upload"%> 
         </div> 
 
-        <div class="col-md-5 mb-2 text-white">
+        <div class=" mb-2">
           <%# Drop Down List For Pet Species With Default Value of Cat%>
-          <%= form.label :species, "Pet Species"%> 
-          <%= form.select :species, ["Choose Pet Species", "Cat", "Dog", "Bird", "Small Animals"], { disabled: 'Choose Pet Species',  selected: 'Choose Pet Species' }%>
+          <%= form.label :species, "Pet Species"%> <br>
+          <%= form.select :species, ["Choose Pet Species", "Cat", "Dog", "Bird", "Small Animals"], { disabled: 'Choose Pet Species' }, class:"forminput"%>
         </div>
 
-        <div class="col-md-5 mb-2 text-white">
+        <div class=" mb-2">
           <%# Text Field For Pet Name With Default Value of Unknown%>
-          <%= form.label :petname,"Pet Name"%>
-          <%= form.text_field :petname, placeholder:"Write a Pet Name", :value => "Unknown"%>
+          <%= form.label :petname,"Pet Name"%><br>
+          <%= form.text_field :petname, placeholder:"Write a Pet Name", class:"forminput"%>
         </div>
 
-        <div class="col-md-5 mb-2 text-white">
+        <div class=" mb-2">
           <%# Drop Down List For Pet Gender Default Value of Unknown%>
-          <%= form.label :gender, "Pet Gender"%> 
-          <%= form.select :gender, ["Choose Pet Gender", "Unknown", "Male", "Female"], { disabled: 'Choose Pet Species',  selected: 'Choose Pet Species' } %> 
+          <%= form.label :gender, "Pet Gender"%> <br>
+          <%= form.select :gender, ["Choose Pet Gender", "Unknown", "Male", "Female"], { disabled: 'Choose Pet Gender'}, class:"forminput" %> 
         </div>
 
-        <div class="col-md-5 mb-2 text-white">
+        <div class=" mb-2">
           <%# Text filed List For Pet Breed Default Value of Unknown%>
-           <%= form.label :breed, "Pet Breed" %>
-          <%= form.text_field :breed,placeholder:"ex: Domestic Short Hair" %>
+           <%= form.label :breed, "Pet Breed" %><br>
+          <%= form.text_field :breed,placeholder:"ex: Domestic Short Hair", class:"forminput" %>
         </div>
-        <div class="col-md-5 mb-2 text-white">
+        <div class=" mb-2">
           <%# Text Field For Pet Color%>
-          <%= form.label :color, "Pet Primary Color" %>
-          <%= form.text_field :color,placeholder:"ex: Orange" %>
+          <%= form.label :color, "Pet Primary Color" %><br>
+          <%= form.text_field :color,placeholder:"ex: Orange", class:"forminput" %>
         </div>
         
-        <div class="col-md-5 mb-2 text-white">
-          <%# Text Area to Descripe The Pet or Any Details%>
-          <%= form.label :descriptions, "Pet Description"%> <br>
-          <%= form.text_area :descriptions, placeholder:" Write A Pet Description ... ", size:"25x3", :value => "No Description Added"%>
+         <div class=" mb-2">
+        <%# Text Fild with Date Type to Write Pet Lost/Found Date%>
+          <%= form.label :age,"age"%> <br>
+          <%= form.text_field :age, type: :age, placeholder:"2 months/year", class:"forminput"%>
         </div>
 
-        <div class="col-md-5 mb-2 text-white">
+        <div class=" mb-2">
+        <%# Text Fild with Date Type to Write Pet Lost/Found Date%>
+          <%= form.label :date,"Birthday/lost/found Date"%> <br>
+          <%= form.date_field :date, type: :date, placeholder:"dd-mm-yyyy", class:"forminput"%>
+        </div>
+
+        <div class=" mb-2">
           <%# Text Fild to Write Address%>
-          <%= form.label :address, "Address"%>
-          <%= form.text_field :address, placeholder:"ex: Steen Street"%>
+          <%= form.label :address, "Address"%><br>
+          <%= form.text_field :address, placeholder:"ex: Steen Street", class:"forminput"%>
         </div>
 
-        <div class="col-md-5 mb-2 text-white">
+        <div class=" mb-2">
         <%# Text Fild to Write City%>
-          <%= form.label :city, "City"%> 
-          <%= form.text_field :city, placeholder: "ex: Makkah"%>
+          <%= form.label :city, "City"%> <br>
+          <%= form.text_field :city, placeholder: "ex: Makkah", class:"forminput"%>
         </div> 
 
-        <div class="col-md-5 mb-2 text-white">
-        <%# Text Fild with Date Type to Write Pet Lost/Found Date%>
-          <%= form.label :date,"Date"%> 
-          <%= form.text_field :date, type: :date, placeholder:"dd-mm-yyyy"%>
-        </div>
-
-      <div class="col-md-5 mb-2 text-white">
-        <%# Text Fild with Date Type to Write Pet Lost/Found Date%>
-          <%= form.label :age,"age"%> 
-          <%= form.date_field :age, type: :age, placeholder:"2 months/year"%>
-        </div>
-
-        <div class="col-md-5 mb-2 text-white">
+        <div class=" mb-2">
           <%# Text Fild to Write the User Phone Number%>
-          <%= form.label :phone,"Phone Number" %>
-          <%= form.telephone_field :phone, placeholder:"xxx-xxx-xxxx"%>
+          <%= form.label :phone,"Phone Number" %><br>
+          <%= form.telephone_field :phone, placeholder:"xxx-xxx-xxxx", class:"forminput"%>
         </div>
 
-        <div class="col-md-5 mb-2 text-white">
+        <div class=" mb-2">
         <%# Text Fild to Write the User Email Address%>
-          <%= form.label :email, "Email Address" %> 
-          <%= form.email_field :email, placeholder:"email@example.com" %>
+          <%= form.label :email, "Email Address" %> <br>
+          <%= form.email_field :email, placeholder:"email@example.com", class:"forminput" %>
         </div>
 
-        <div class="col-md-5 mb-2">
+        <div class=" mb-2">
+          <%# Text Area to Descripe The Pet or Any Details%>
+          <%= form.label :descriptions, "Pet Description"%> <br>
+          <%= form.text_area :descriptions, placeholder:" Write A Pet Description ... ",class:"forminput", :value => "No Description Added"%>
+        </div>
+        <div class=" mb-2">
           <%# Submit%>
-          <%= form.submit "Create A Report", class:"btn btn-primary my-2"%>
+          <%= form.submit "Add A Report", class:"btn btn-light my-2 forminput"%>
         </div>
     </div>
   <% end %>
