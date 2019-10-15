@@ -54,7 +54,7 @@
         <div class=" mb-2">
         <%# Text Fild with Date Type to Write Pet Lost/Found Date%>
           <%= form.label :date,"Birthday/lost/found Date"%> <br>
-          <%= form.date_field :date, placeholder:"dd-mm-yyyy", class:"forminput", style:"height:35px;"%>
+          <%= form.date_field :date, as: :date, value: form.object.try(:strftime,"%d/%m/%Y"), placeholder:"dd-mm-yyyy", class:"forminput", style:"height:32px;"%>
         </div>
 
         <div class=" mb-2">
