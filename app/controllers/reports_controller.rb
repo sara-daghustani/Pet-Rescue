@@ -16,7 +16,7 @@ class ReportsController < ApplicationController
              :gender, :color, :descriptions, :address,:city, :date, :age,:breed, :phone, :email))
         report.user_id = current_user.id
         report.save!
-        redirect_to reports_path
+        redirect_to reports_path ,  notice: 'Report was successfully added.'
     end
     def show
         @report = Report.find(params[:id])

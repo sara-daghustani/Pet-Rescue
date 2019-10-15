@@ -7,8 +7,8 @@ class Report < ApplicationRecord
 
    
     
-    validates :phone, numericality: { only_integer: true,  allow_blank: true}
-    validates_length_of :phone, is: 10
+    # validates :phone, numericality: { only_integer: true,  allow_blank: true}
+    # validates_length_of :phone, is: 10
     
     # validates :name, presence: { message: "must be given please" }
  
