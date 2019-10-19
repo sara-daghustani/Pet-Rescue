@@ -285,7 +285,7 @@
                     </div>
 
                     <div class="tab-pane " id="comments" role="tabpanel" aria-labelledby="comments-tab">
-                        <%@report.comments.each do |r| %> 
+                        <%@report.comments.reversed.each do |r| %> 
                         <div class="row-lg-6 d-flex justify-content-between">
                             <h6 ><%= r.user.name%></h6>
                             <div>
