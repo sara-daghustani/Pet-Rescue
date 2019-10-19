@@ -287,7 +287,8 @@
                     <div class="tab-pane " id="comments" role="tabpanel" aria-labelledby="comments-tab">
                         <%@report.comments.reversed.each do |r| %> 
                         <div class="row-lg-6 d-flex justify-content-between">
-                            <h6 ><%= r.user.name%></h6>
+                            <h6 ><%= r.user.name%> </h6>
+                           
                             <div>
                                 <%if user_signed_in? %>
                                     <%if current_user.id == r.user_id%>
