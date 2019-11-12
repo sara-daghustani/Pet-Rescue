@@ -1,18 +1,15 @@
 
 <div class="container ShowcardBody my-4">
-
-<%# ########################## Lost ############################ %>
+    <%########################### Lost ############################%>
     <% if @report.reporttype == "Lost"%> 
         <div class="row bg-light w-100 h-100 m-0 card-body" style="border:1px solid red;">
             <div class="col-lg-6">
                 <%= image_tag(@report.img.variant(auto_orient: true, gravity: "center"), alt: "Pet Image", class:"img-fluid rounded showimg", :style => "border: 1px solid red" )%> 
-               
                     <div class="top-left ml-1"> 
                             <h5 class= "none btn btn-danger btn-sm disabled " > 
                                 <%=@report.reporttype%>
                             </h5> 
                     </div>
-             
                 <hr>
                 <address>
                     <strong>Contact me</strong>
@@ -21,62 +18,63 @@
                     <%= link_to @report.phone, "tel:#{@report.phone}" %> <br>
                     <abbr title="Email">Email:</abbr>
                     <%= mail_to @report.email%>
-                </address>
-                
+                </address> 
             </div> 
+
             <div class="col-lg-6 ">
-            <div class=" text-right">   
-                <%if user_signed_in?%>
-                        <%if current_user.id == @report.user_id%>
-                            <%= link_to "Edit", edit_report_path(@report),  class:"link-btn"%> |
-                            <%= link_to "Delete", report_path(@report), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
-                        <%elsif current_user.admin == true %>
-                            <%= link_to "Edit", edit_report_path(@report),  class:"link-btn"%> |
-                            <%= link_to "Delete", report_path(@report), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
-                        <%end%>
-                    <%end%> 
+                <div class=" text-right">   
+                    <%if user_signed_in?%>
+                            <%if current_user.id == @report.user_id%>
+                                <%= link_to "Edit", edit_report_path(@report),  class:"link-btn"%> |
+                                <%= link_to "Delete", report_path(@report), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
+                            <%elsif current_user.admin == true %>
+                                <%= link_to "Edit", edit_report_path(@report),  class:"link-btn"%> |
+                                <%= link_to "Delete", report_path(@report), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
+                            <%end%>
+                        <%end%> 
                 </div>  
-                 <p class="card-text text-danger mb-2 ">
-                    <strong> Pet Name </strong>  <br> 
-                    <%=@report.petname%> is Lost
-                </p>
+                    <p class="card-text text-danger mb-2 ">
+                        <strong> Pet Name </strong>  <br> 
+                        <%=@report.petname%> is Lost
+                    </p>
             
-        <div class="row">
-            <div class="col-lg-5">
-                <p class="card-text text-danger mb-2">
-                    <strong> Pet Species </strong> <br> 
-                    <%=@report.species%> 
-                </p>
-                <p class="card-text text-danger mb-2">
-                    <strong> Pet Color</strong> <br>
-                    <%=@report.color%> 
-                </p>
-            </div>
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <p class="card-text text-danger mb-2">
+                                <strong> Pet Species </strong> <br> 
+                                <%=@report.species%> 
+                            </p>
+                            <p class="card-text text-danger mb-2">
+                                <strong> Pet Color</strong> <br>
+                                <%=@report.color%> 
+                            </p>
+                        </div>
 
-            <div class="col-lg-5">
-                <p class="card-text text-danger mb-2">
-                    <strong> Pet Gender</strong> <br>
-                    <%=@report.gender%> 
-                </p>
-                <p class="card-text text-danger mb-2">
-                    <strong> Pet Breed</strong> <br>
-                    <%=@report.breed%> 
-                </p>
-            </div> 
+                        <div class="col-lg-5">
+                            <p class="card-text text-danger mb-2">
+                                <strong> Pet Gender</strong> <br>
+                                <%=@report.gender%> 
+                            </p>
+                            <p class="card-text text-danger mb-2">
+                                <strong> Pet Breed</strong> <br>
+                                <%=@report.breed%> 
+                            </p>
+                        </div> 
 
-            <div class="col-lg-5">
-               <p class="card-text text-danger mb-2">
-                    <strong>Pet Lost Date</strong><br>  
-                    <%= @report.date.strftime("%d/%m/%Y") %>
-                </p>
-            </div>
-            <div class="col-lg-5">
-                 <p class="card-text text-danger mb-2">
-                    <strong>Pet Age</strong><br>  
-                    <%= @report.age %>
-                </p>
-            </div> 
-        </div>
+                        <div class="col-lg-5">
+                            <p class="card-text text-danger mb-2">
+                                <strong>Pet Lost Date</strong><br>  
+                                <%= @report.date.strftime("%d/%m/%Y") %>
+                            </p>
+                        </div>
+
+                        <div class="col-lg-5">
+                            <p class="card-text text-danger mb-2">
+                                <strong>Pet Age</strong><br>  
+                                <%= @report.age %>
+                            </p>
+                        </div> 
+                    </div>
                 <p class="card-text text-danger mb-2">
                     <strong>Pet Lost Address</strong><br>  
                     <%= @report.address %>, <%= @report.city %>
@@ -88,9 +86,10 @@
                 </p>
             </div>  
         </div>
-        <%# ########################## Found ############################ %>
+
+    <%########################### Found ############################%>
     <%elsif @report.reporttype == "Found"%>
-       <div class="row bg-light w-100 h-100 m-0 card-body" style="border:1px solid green;">
+        <div class="row bg-light w-100 h-100 m-0 card-body" style="border:1px solid green;">
             <div class="col-lg-6">
                 <%= image_tag(@report.img.variant(auto_orient: true, gravity: "center"), alt: "Pet Image", class:"img-fluid rounded showimg", :style => "border: 1px solid green")%> 
                
@@ -99,8 +98,8 @@
                                 <%=@report.reporttype%>
                             </h5> 
                     </div>
-             
                 <hr>
+
                 <address>
                     <strong>Contact me</strong>
                     <br>
@@ -110,6 +109,7 @@
                     <%= mail_to @report.email%>
                 </address>
             </div> 
+
             <div class="col-lg-6 ">
                 <div class=" text-right">   
                     <%if user_signed_in? %>
@@ -122,47 +122,48 @@
                         <%end%>
                     <%end%> 
                 </div>  
-                 <p class="card-text text-success mb-2 ">
+                <p class="card-text text-success mb-2 ">
                     <strong> Pet Name </strong>  <br> 
                    I have Found <%=@report.petname%> 
                 </p>
             
-        <div class="row">
-            <div class="col-lg-5">
-                <p class="card-text text-success mb-2">
-                    <strong> Pet Species </strong> <br> 
-                    <%=@report.species%> 
-                </p>
-                <p class="card-text text-success mb-2">
-                    <strong> Pet Color</strong> <br>
-                    <%=@report.color%> 
-                </p>
-            </div>
+                <div class="row">
+                    <div class="col-lg-5">
+                        <p class="card-text text-success mb-2">
+                            <strong> Pet Species </strong> <br> 
+                            <%=@report.species%> 
+                        </p>
+                        <p class="card-text text-success mb-2">
+                            <strong> Pet Color</strong> <br>
+                            <%=@report.color%> 
+                        </p>
+                    </div>
 
-            <div class="col-lg-5">
-                <p class="card-text text-success mb-2">
-                    <strong> Pet Gender</strong> <br>
-                    <%=@report.gender%> 
-                </p>
-                <p class="card-text text-success mb-2">
-                    <strong> Pet Breed</strong> <br>
-                    <%=@report.breed%> 
-                </p>
-            </div> 
+                    <div class="col-lg-5">
+                        <p class="card-text text-success mb-2">
+                            <strong> Pet Gender</strong> <br>
+                            <%=@report.gender%> 
+                        </p>
+                        <p class="card-text text-success mb-2">
+                            <strong> Pet Breed</strong> <br>
+                            <%=@report.breed%> 
+                        </p>
+                    </div> 
 
-            <div class="col-lg-5">
-               <p class="card-text text-success mb-2">
-                    <strong>Pet Found Date</strong><br>  
-                    <%= @report.date.strftime("%d/%m/%Y") %>
-                </p>
-            </div>
-            <div class="col-lg-5">
-                 <p class="card-text text-success mb-2">
-                    <strong>Pet Age</strong><br>  
-                    <%= @report.age %>
-                </p>
-            </div> 
-        </div>
+                    <div class="col-lg-5">
+                        <p class="card-text text-success mb-2">
+                            <strong>Pet Found Date</strong><br>  
+                            <%= @report.date.strftime("%d/%m/%Y") %>
+                        </p>
+                    </div>
+                    <div class="col-lg-5">
+                        <p class="card-text text-success mb-2">
+                            <strong>Pet Age</strong><br>  
+                            <%= @report.age %>
+                        </p>
+                    </div> 
+                </div>
+
                 <p class="card-text text-success mb-2">
                     <strong>Pet Found Address</strong><br>  
                     <%= @report.address %>, <%= @report.city %>
@@ -174,18 +175,16 @@
                 </p>
             </div>  
         </div>
-        <%# ########################## Adoption ############################ %>
-        <%else%>
+    <%########################### Adoption ############################%>
+    <%else%>
         <div class="row bg-light w-100 h-100 m-0 card-body" style="border:1px solid #5bc0de;">
             <div class="col-lg-6">
                 <%= image_tag(@report.img.variant(auto_orient: true, gravity: "center"), alt: "Pet Image", class:"img-fluid rounded showimg", :style => "border: 1px solid #5bc0de")%> 
-               
                     <div class="top-left ml-1"> 
                             <h5 class= "none btn btn-info btn-sm disabled " > 
                                 <%=@report.reporttype%>
                             </h5> 
                     </div>
-             
                 <hr>
                 <address>
                     <strong>Contact me</strong>
@@ -197,72 +196,74 @@
                 </address>
             </div> 
             <div class="col-lg-6 ">
-            <div class=" text-right">   
-                <%if user_signed_in?%>
-                        <%if current_user.id == @report.user_id%>
-                            <%= link_to "Edit", edit_report_path(@report),  class:"link-btn"%> |
-                            <%= link_to "Delete", report_path(@report), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
-                        <%elsif current_user.admin == true %>
-                            <%= link_to "Edit", edit_report_path(@report),  class:"link-btn"%> |
-                            <%= link_to "Delete", report_path(@report), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
-                        <%end%>
-                    <%end%> 
+                <div class=" text-right">   
+                    <%if user_signed_in?%>
+                            <%if current_user.id == @report.user_id%>
+                                <%= link_to "Edit", edit_report_path(@report),  class:"link-btn"%> |
+                                <%= link_to "Delete", report_path(@report), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
+                            <%elsif current_user.admin == true %>
+                                <%= link_to "Edit", edit_report_path(@report),  class:"link-btn"%> |
+                                <%= link_to "Delete", report_path(@report), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
+                            <%end%>
+                        <%end%> 
                 </div>  
-                 <p class="card-text text-info mb-2 ">
+                <p class="card-text text-info mb-2 ">
                     <strong> Pet Name </strong>  <br> 
                     <%=@report.petname%> is for Adoption
                 </p>
             
-        <div class="row">
-            <div class="col-lg-5">
-                <p class="card-text text-info mb-2">
-                    <strong> Pet Species </strong> <br> 
-                    <%=@report.species%> 
-                </p>
-                <p class="card-text text-info mb-2">
-                    <strong> Pet Color</strong> <br>
-                    <%=@report.color%> 
-                </p>
-            </div>
+                <div class="row">
+                    <div class="col-lg-5">
+                        <p class="card-text text-info mb-2">
+                            <strong> Pet Species </strong> <br> 
+                            <%=@report.species%> 
+                        </p>
+                        <p class="card-text text-info mb-2">
+                            <strong> Pet Color</strong> <br>
+                            <%=@report.color%> 
+                        </p>
+                    </div>
 
-            <div class="col-lg-5">
-                <p class="card-text text-info mb-2">
-                    <strong> Pet Gender</strong> <br>
-                    <%=@report.gender%> 
-                </p>
-                <p class="card-text text-info mb-2">
-                    <strong> Pet Breed</strong> <br>
-                    <%=@report.breed%> 
-                </p>
-            </div> 
+                    <div class="col-lg-5">
+                        <p class="card-text text-info mb-2">
+                            <strong> Pet Gender</strong> <br>
+                            <%=@report.gender%> 
+                        </p>
+                        <p class="card-text text-info mb-2">
+                            <strong> Pet Breed</strong> <br>
+                            <%=@report.breed%> 
+                        </p>
+                    </div> 
 
-            <div class="col-lg-5">
-               <p class="card-text text-info mb-2">
-                    <strong>Pet Birthday</strong><br>  
-                    <%= @report.date.strftime("%d/%m/%Y") %>
-                </p>
-            </div>
-            <div class="col-lg-5">
-                 <p class="card-text text-info mb-2">
-                    <strong>Pet Age</strong><br>  
-                    <%= @report.age %>
-                </p>
-            </div> 
-        </div>
+                    <div class="col-lg-5">
+                        <p class="card-text text-info mb-2">
+                            <strong>Pet Birthday</strong><br>  
+                            <%= @report.date.strftime("%d/%m/%Y") %>
+                        </p>
+                    </div>
+                    <div class="col-lg-5">
+                        <p class="card-text text-info mb-2">
+                            <strong>Pet Age</strong><br>  
+                            <%= @report.age %>
+                        </p>
+                    </div> 
+                </div>
+
                 <p class="card-text text-info mb-2">
                     <strong>Pet Adoption Address</strong><br>  
                     <%= @report.address %>, <%= @report.city %>
                 </p>
-
                 <p class="card-text text-info mb-2">
                     <strong>Pet Descriptions:</strong> <br>
                     <%=@report.descriptions%>
                 </p>
+                
             </div>  
         </div>
     <%end%>
 </div>
 
+<%######################### Comments ############################%>
 <div class="container ShowcardBody my-4">
     <div class="row bg-light w-100 h-100 m-0 card-body">
         <div class="col-12 col-sm-8 col-md-6 col-lg-7">
@@ -285,28 +286,26 @@
                     </div>
 
                     <div class="tab-pane " id="comments" role="tabpanel" aria-labelledby="comments-tab">
-                        <%@report.comments.reversed.each do |r| %> 
-                        <div class="row-lg-6 d-flex justify-content-between">
-                            <h6 ><%= r.user.name%> </h6>
-                           
-                            <div>
-                                <%if user_signed_in? %>
-                                    <%if current_user.id == r.user_id%>
-                                        <%= link_to "Edit", edit_comment_path(r), class:"link-btn" %> |
-                                        <%= link_to "Delete", comment_path(r), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
-                                    <%elsif current_user.admin == true %>
-                                        <%= link_to "Edit", edit_report_path(@report),  class:"link-btn"%> |
-                                        <%= link_to "Delete", report_path(@report), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
+                        <% @report.comments.reversed.each do |r| %> 
+                            <div class="row-lg-6 d-flex justify-content-between">
+                                <h6 ><%= r.user.name%> </h6>
+                                <div>
+                                    <%if user_signed_in? %>
+                                        <%if current_user.id == r.user_id%>
+                                            <%= link_to "Edit", edit_comment_path(r), class:"link-btn" %> |
+                                            <%= link_to "Delete", comment_path(r), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
+                                        <%elsif current_user.admin == true %>
+                                            <%= link_to "Edit", edit_report_path(@report),  class:"link-btn"%> |
+                                            <%= link_to "Delete", report_path(@report), class:"link-btn" , method: :delete, data: {confirm:"Are you sure you want to delete"}%>
+                                        <%end%>
                                     <%end%>
-                                <%end%>
-                            </div>
-                        </div> 
-                        <p class="card-text"><%= r.content%>.</p>
+                                </div>
+                            </div> 
+                            <p class="card-text"><%= r.content%></p>
                         <%end%> 
                     </div>
                 </div>
-            </div>
-            
+            </div>  
         </div>
     </div>
 </div>
