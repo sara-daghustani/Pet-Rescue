@@ -29,9 +29,6 @@
     color: #353a3f;
 }
 
-
-
-
 .top-left{
     position: absolute;
     top: 8px;
@@ -81,7 +78,6 @@
     background-size: 60%; 
 }
 
-
 .ShowcardBody{
     background-color:rgba(0, 0, 0, 0.486);
     border-radius: 5px;
@@ -91,9 +87,6 @@
     background-repeat: no-repeat;
     background-size: 950px; 
 }
-
-
-
 
 
 .card-img-top{
@@ -125,6 +118,7 @@ tbody{
     color:rgb(54, 54, 54);
     font-weight: bold;
 }
+
 thead{ 
     font-weight: bold;
 }
@@ -132,15 +126,18 @@ thead{
 .table th, .table td {
     border: 2px solid rgb(189, 188, 188); 
 }
+
 .setting{
     color: #5f5f61;
 }
+
 .show{
   color: white;
- }
+}
+
  strong{
     color: rgba(0, 0, 0, 0.932);
- }
+}
 
 .showimg{
     height: 400px;
@@ -175,11 +172,13 @@ thead{
     border:1px solid white;
     border-radius: 5px;
 }
+
 select {
     width: 100%;
     height: 30px;
     background-color: white;
 }
+
 textarea{
     width: 100%;
     height: 70px;
@@ -188,4 +187,8 @@ textarea{
 
 #search{
     width: 28%;
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-image: url(); // humberger bar icon.
 }

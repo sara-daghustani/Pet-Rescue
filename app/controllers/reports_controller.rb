@@ -4,9 +4,8 @@ class ReportsController < ApplicationController
     before_action :check_if_owner, only: [:edit, :update, :destroy,]
     
  
-    def index
-     
-    end
+    # def index
+    # end
 
     def new
         @report = Report.new
