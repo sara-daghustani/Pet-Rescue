@@ -8,7 +8,6 @@
 <h5> Website:</h5> 
 <p><a href="https://pets-rescue.herokuapp.com/" target="_blank">https://pets-rescue.herokuapp.com/</a></p>
 
-</br>
  <h4>Pet Rescue Website Overview: </h4>
  <p>The website built for pet owners, rescuers, and pet lovers. They can post a report of lost and found pets with the ability to write a description, information and upload an image of the pet. Also, they can introduce a pet for adoption. </p>
  
@@ -21,7 +20,7 @@ To get a local copy up and running follow these simple steps.
  
 1. Fork and Clone the repo
 ```sh
-git clone https:://github.com/github_username/repo.git
+git clone https://github.com/github_username/repo.git
 ```
 2. Boundle install
 
